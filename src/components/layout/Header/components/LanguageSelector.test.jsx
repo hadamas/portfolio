@@ -8,24 +8,27 @@ describe('LanguageSelector', () => {
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
   })
 
-  it('abre o dropdown ao clicar no botão', () => {
+  it('abre o dropdown ao clicar no ícone', () => {
     render(<LanguageSelector />)
     fireEvent.click(screen.getByLabelText('Selecionar idioma'))
     expect(screen.getByRole('listbox')).toBeInTheDocument()
   })
 
-  it('mostra as 4 opções de idioma', () => {
+  it('mostra as opções traduzidas no idioma selecionado (inglês por padrão)', () => {
     render(<LanguageSelector />)
     fireEvent.click(screen.getByLabelText('Selecionar idioma'))
-    ;['English', 'Português', 'Français', '日本語'].forEach((label) => {
+    ;['English', 'Portuguese', 'French', 'Japanese'].forEach((label) => {
       expect(screen.getByText(label)).toBeInTheDocument()
     })
   })
 
-  it('fecha o dropdown ao selecionar uma opção', () => {
+  it('atualiza os nomes exibidos após trocar o idioma selecionado', () => {
     render(<LanguageSelector />)
     fireEvent.click(screen.getByLabelText('Selecionar idioma'))
-    fireEvent.click(screen.getByText('Português'))
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('Portuguese'))
+
+    fireEvent.click(screen.getByLabelText('Selecionar idioma'))
+    expect(screen.getByText('Inglês')).toBeInTheDocument()
+    expect(screen.getByText('Português')).toBeInTheDocument()
   })
 })

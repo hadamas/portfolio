@@ -1,0 +1,69 @@
+.wrapper {
+  position: relative;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.trigger:hover {
+  opacity: 0.7;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  min-width: 220px;
+  background-color: var(--dropdown-bg, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 0.5rem;
+  list-style: none;
+  z-index: 100;
+}
+
+.option {
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+}
+
+.option:hover .optionRow {
+  background-color: var(--dropdown-hover-bg, #f4f4f5);
+}
+
+.optionText {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.optionName {
+  font-weight: 500;
+}
+
+.optionNative {
+  color: var(--text-muted, #9a9a9a);
+  font-size: 0.85rem;
+}
+
+.checkIcon {
+  color: var(--accent-color, #3b82f6);
+  flex-shrink: 0;
+}
