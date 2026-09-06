@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.10",
+    "howler": "^2.2.4",
     "lucide-react": "^1.41.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "use-sound": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

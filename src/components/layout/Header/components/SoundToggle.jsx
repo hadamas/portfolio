@@ -1,14 +1,14 @@
-import { useState } from 'react'
 import { Volume2, VolumeX } from 'lucide-react'
+import { useSoundContext } from '../../../../context/SoundContext'
 import styles from './SoundToggle.module.css'
 
 function SoundToggle() {
-  const [enabled, setEnabled] = useState(true)
+  const { enabled, toggleEnabled } = useSoundContext()
 
   return (
     <button
-      className={styles.toggle}
-      onClick={() => setEnabled((prev) => !prev)}
+      className={styles.trigger}
+      onClick={toggleEnabled}
       aria-label={enabled ? 'Desativar som' : 'Ativar som'}
       aria-pressed={enabled}
     >
