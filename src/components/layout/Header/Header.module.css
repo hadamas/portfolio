@@ -25,6 +25,10 @@
   font-size: 0.95rem;
 }
 
+.nav a:hover {
+  color: var(--color-link-hover);
+}
+
 .actions {
   display: flex;
   align-items: center;
