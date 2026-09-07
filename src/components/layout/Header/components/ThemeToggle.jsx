@@ -1,14 +1,15 @@
-import { useState } from 'react'
 import { Sun, Moon } from 'lucide-react'
+import { useThemeContext } from '../../../../context/ThemeContext'
 import styles from './ThemeToggle.module.css'
 
 function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false)
+  const { theme, toggleTheme } = useThemeContext()
+  const isDark = theme === 'dark'
 
   return (
     <button
-      className={styles.toggle}
-      onClick={() => setIsDark((prev) => !prev)}
+      className={styles.trigger}
+      onClick={toggleTheme}
       aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo escuro'}
       aria-pressed={isDark}
     >

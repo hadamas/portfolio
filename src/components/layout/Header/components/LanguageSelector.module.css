@@ -22,7 +22,8 @@
   top: calc(100% + 0.75rem);
   right: 0;
   min-width: 220px;
-  background-color: var(--dropdown-bg, #ffffff);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   padding: 0.5rem;
@@ -44,7 +45,7 @@
 }
 
 .option:hover .optionRow {
-  background-color: var(--dropdown-hover-bg, #f4f4f5);
+  background-color: var(--color-surface-hover);
 }
 
 .optionText {
@@ -59,11 +60,11 @@
 }
 
 .optionNative {
-  color: var(--text-muted, #9a9a9a);
+  color: var(--color-text-muted);
   font-size: 0.85rem;
 }
 
 .checkIcon {
-  color: var(--accent-color, #3b82f6);
+  color: var(--color-accent);
   flex-shrink: 0;
 }

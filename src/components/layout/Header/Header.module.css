@@ -4,7 +4,8 @@
   align-items: center;
   gap: 2rem;
   padding: 1rem 2rem;
-  background-color: var(--header-bg, #ffffff);
+  background-color: var(--color-surface);
+  transition: var(--transition-theme);
 }
 
 .logo img {

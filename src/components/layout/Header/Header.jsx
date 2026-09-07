@@ -1,4 +1,4 @@
-import logo from '../../../assets/images/logo.svg'
+import logo from '../../../assets/images/logo2.png'
 import SoundToggle from './components/SoundToggle'
 import LanguageSelector from './components/LanguageSelector'
 import ThemeToggle from './components/ThemeToggle'
