@@ -1,13 +1,13 @@
 :root {
-  --color-bg: #ffffff;
+  --color-bg: #ffffff; //ou essa cor #f6f5ef
   --color-text: #000000;
-  --color-surface: #ffffff;
+  --color-surface: #ffffff;  //ou essa cor #f6f5ef
   --color-surface-hover: #f4f4f5;
   --color-text-muted: #6b7280;
   --color-accent: #3b82f6;
   --color-border: rgba(0, 0, 0, 0.08);
-  --color-button-hover: rgba(105, 135, 244, 0.91);
-  --color-link-hover: #17967f;
+  --color-button-hover: rgba(112, 203, 255, 0.85);
+  --color-link-hover: #ec7f58;
 
   --transition-theme: background-color 0.2s ease, color 0.2s ease;
 }

@@ -3,11 +3,14 @@ import { describe, it, expect } from 'vitest'
 import Header from './Header'
 import { SoundProvider } from '../../../context/SoundContext'
 import { ThemeProvider } from '../../../context/ThemeContext'
+import { LanguageProvider } from '../../../context/LanguageContext'
 
 function renderWithProviders(ui) {
   return render(
     <ThemeProvider>
-      <SoundProvider>{ui}</SoundProvider>
+      <LanguageProvider>
+        <SoundProvider>{ui}</SoundProvider>
+      </LanguageProvider>
     </ThemeProvider>
   )
 }
@@ -18,7 +21,7 @@ describe('Header', () => {
     expect(screen.getByAltText('alanis-logo')).toBeInTheDocument()
   })
 
-  it('renderiza todos os links de navegação', () => {
+  it('renderiza os links de navegação em inglês por padrão', () => {
     renderWithProviders(<Header />)
     ;['Home', 'About', 'Projects', 'Contact'].forEach((label) => {
       expect(screen.getByText(label)).toBeInTheDocument()
