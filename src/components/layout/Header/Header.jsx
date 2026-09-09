@@ -1,7 +1,9 @@
-import logo from '../../../assets/images/logo.png'
+import logoLight from '../../../assets/images/logo.png'
+import logoDark from '../../../assets/images/logo-dark.png'
 import SoundToggle from './components/SoundToggle'
 import LanguageSelector from './components/LanguageSelector'
 import ThemeToggle from './components/ThemeToggle'
+import { useThemeContext } from '../../../hooks/useThemeContext'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { translations } from '../../../i18n/translations'
 import styles from './Header.module.css'
@@ -15,7 +17,9 @@ const NAV_ITEMS = [
 
 function Header() {
   const { language } = useLanguageContext()
+  const { theme } = useThemeContext()
   const nav = translations[language.code].nav
+  const logo = theme === 'dark' ? logoDark : logoLight
 
   return (
     <header className={styles.header}>
