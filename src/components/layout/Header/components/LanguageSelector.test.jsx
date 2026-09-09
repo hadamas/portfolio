@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect } from 'vitest'
 import LanguageSelector from './LanguageSelector'
-import { LanguageProvider } from '../../../../context/LanguageContext'
+import { LanguageProvider } from '../../../../context/LanguageProvider'
 
 function renderWithProvider(ui) {
   return render(<LanguageProvider>{ui}</LanguageProvider>)

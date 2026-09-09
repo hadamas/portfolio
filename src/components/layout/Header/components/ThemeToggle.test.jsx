@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect } from 'vitest'
 import ThemeToggle from './ThemeToggle'
-import { ThemeProvider } from '../../../../context/ThemeContext'
+import { ThemeProvider } from '../../../../context/ThemeProvider'
 
 function renderWithProvider(ui) {
   return render(<ThemeProvider>{ui}</ThemeProvider>)

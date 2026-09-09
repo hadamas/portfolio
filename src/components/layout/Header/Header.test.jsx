@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import Header from './Header'
-import { SoundProvider } from '../../../context/SoundContext'
-import { ThemeProvider } from '../../../context/ThemeContext'
-import { LanguageProvider } from '../../../context/LanguageContext'
+import { SoundProvider } from '../../../context/SoundProvider'
+import { ThemeProvider } from '../../../context/ThemeProvider'
+import { LanguageProvider } from '../../../context/LanguageProvider'
 
 function renderWithProviders(ui) {
   return render(

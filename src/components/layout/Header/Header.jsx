@@ -2,7 +2,7 @@ import logo from '../../../assets/images/logo.png'
 import SoundToggle from './components/SoundToggle'
 import LanguageSelector from './components/LanguageSelector'
 import ThemeToggle from './components/ThemeToggle'
-import { useLanguageContext } from '../../../context/LanguageContext'
+import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { translations } from '../../../i18n/translations'
 import styles from './Header.module.css'
 

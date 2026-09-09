@@ -1,8 +1,7 @@
-import { createContext, useContext, useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import useSound from 'use-sound'
+import { SoundContext } from './SoundContext'
 import buttonClickSfx from '../assets/sounds/button-click.mp3'
-
-const SoundContext = createContext(null)
 
 export function SoundProvider({ children }) {
   const [enabled, setEnabled] = useState(true)
@@ -13,13 +12,10 @@ export function SoundProvider({ children }) {
   useEffect(() => {
     function handleClick(event) {
       if (!enabled) return
-
       const isInteractive = event.target.closest(
         'button, a, [role="button"], [role="option"], [role="tab"]'
       )
-      if (isInteractive) {
-        playButtonSound()
-      }
+      if (isInteractive) playButtonSound()
     }
 
     document.addEventListener('click', handleClick)
@@ -31,12 +27,4 @@ export function SoundProvider({ children }) {
       {children}
     </SoundContext.Provider>
   )
-}
-
-export function useSoundContext() {
-  const context = useContext(SoundContext)
-  if (!context) {
-    throw new Error('useSoundContext deve ser usado dentro de um SoundProvider')
-  }
-  return context
 }

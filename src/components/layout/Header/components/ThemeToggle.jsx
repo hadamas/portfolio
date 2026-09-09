@@ -1,5 +1,5 @@
 import { Sun, Moon } from 'lucide-react'
-import { useThemeContext } from '../../../../context/ThemeContext'
+import { useThemeContext } from '../../../../hooks/useThemeContext'
 import styles from './ThemeToggle.module.css'
 
 function ThemeToggle() {

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect } from 'vitest'
 import SoundToggle from './SoundToggle'
-import { SoundProvider } from '../../../../context/SoundContext'
+import { SoundProvider } from '../../../../context/SoundProvider'
 
 function renderWithProvider(ui) {
   return render(<SoundProvider>{ui}</SoundProvider>)

@@ -1,5 +1,5 @@
 import { Volume2, VolumeX } from 'lucide-react'
-import { useSoundContext } from '../../../../context/SoundContext'
+import { useSoundContext } from '../../../../hooks/useSoundContext'
 import styles from './SoundToggle.module.css'
 
 function SoundToggle() {

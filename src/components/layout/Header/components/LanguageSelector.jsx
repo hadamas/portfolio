@@ -1,6 +1,8 @@
 import { Listbox } from '@headlessui/react'
 import { Globe, Check } from 'lucide-react'
-import { useLanguageContext, LANGUAGES } from '../../../../context/LanguageContext'
+import { useLanguageContext } from '../../../../hooks/useLanguageContext'
+import { LANGUAGES } from '../../../../data/languages'
+import { translations } from '../../../../i18n/translations'
 import styles from './LanguageSelector.module.css'
 
 function LanguageSelector() {
@@ -19,7 +21,7 @@ function LanguageSelector() {
               {({ selected: isSelected }) => (
                 <span className={styles.optionRow}>
                   <span className={styles.optionText}>
-                    <span className={styles.optionName}>{lang.names[language.code]}</span>
+                    <span className={styles.optionName}>{translations[language.code].languageNames[lang.code]}</span>
                     <span className={styles.optionNative}>{lang.native}</span>
                   </span>
                   {isSelected && <Check size={16} className={styles.checkIcon} />}
