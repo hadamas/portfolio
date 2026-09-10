@@ -21,17 +21,18 @@ describe('Header', () => {
     expect(screen.getByAltText('alanis-logo')).toBeInTheDocument()
   })
 
-  it('renderiza os links de navegação em inglês por padrão', () => {
+  it('renderiza os links de navegação (desktop + mobile)', () => {
     renderWithProviders(<Header />)
-    ;['Home', 'About', 'Projects', 'Contact'].forEach((label) => {
-      expect(screen.getByText(label)).toBeInTheDocument()
-    })
+    expect(screen.getAllByText('Home')).toHaveLength(2)
+    expect(screen.getAllByText('About')).toHaveLength(2)
+    expect(screen.getAllByText('Projects')).toHaveLength(2)
+    expect(screen.getAllByText('Contact')).toHaveLength(2)
   })
 
-  it('renderiza os 3 controles de ação', () => {
+  it('renderiza os controles de ação (desktop + mobile)', () => {
     renderWithProviders(<Header />)
-    expect(screen.getByLabelText(/desativar som|ativar som/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/selecionar idioma/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/ativar modo/i)).toBeInTheDocument()
+    expect(screen.getAllByLabelText(/desativar som|ativar som/i)).toHaveLength(2)
+    expect(screen.getAllByLabelText(/selecionar idioma/i)).toHaveLength(2)
+    expect(screen.getAllByLabelText(/ativar modo/i)).toHaveLength(2)
   })
 })

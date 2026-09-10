@@ -1,3 +1,4 @@
+/* Breakpoints do projeto: mobile até 767px, desktop/tablet a partir de 768px */
 :root {
   --color-bg: #ffffff; //ou essa cor #f6f5ef
   --color-text: #000000;
@@ -10,6 +11,7 @@
   --color-link-hover: #ec7f58;
 
   --transition-theme: background-color 0.2s ease, color 0.2s ease;
+  --header-height: 96px;
 }
 
 [data-theme='dark'] {

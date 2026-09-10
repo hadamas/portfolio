@@ -6,6 +6,7 @@
   padding: 1rem 2rem;
   background-color: var(--color-surface);
   transition: var(--transition-theme);
+  height: var(--header-height);
 }
 
 .logo img {
@@ -36,14 +37,25 @@
   justify-self: end;
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
-  .header {
-    padding: 1rem 1.5rem;
-    gap: 1rem;
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+@media (max-width: 767px) {
+  .nav,
+  .actions {
+    display: none;
   }
 
-  .nav ul {
-    gap: 1.25rem;
+  .menuButton {
+    display: flex;
+    grid-column: 3;
   }
 }
