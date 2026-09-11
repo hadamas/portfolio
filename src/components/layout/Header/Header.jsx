@@ -9,6 +9,7 @@ import MobileMenu from './components/MobileMenu'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { useThemeContext } from '../../../hooks/useThemeContext'
 import { translations } from '../../../i18n/translations'
+import { MOBILE_BREAKPOINT } from '../../../constants/breakpoints'
 import styles from './Header.module.css'
 
 const NAV_ITEMS = [
@@ -32,6 +33,19 @@ function Header() {
       document.body.style.overflow = ''
     }
   }, [isMobileMenuOpen])
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`)
+
+    function handleChange(event) {
+      if (!event.matches) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    mobileQuery.addEventListener('change', handleChange)
+    return () => mobileQuery.removeEventListener('change', handleChange)
+  }, [])
 
   return (
     <header className={styles.header}>
