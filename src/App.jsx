@@ -1,7 +1,9 @@
 import Header from './components/layout/Header/Header'
+import Footer from './components/layout/Footer/Footer'
 import { SoundProvider } from './context/SoundProvider'
 import { ThemeProvider } from './context/ThemeProvider'
 import { LanguageProvider } from './context/LanguageProvider'
+import styles from './App.module.css'
 import './styles/global.css'
 
 function App() {
@@ -9,7 +11,13 @@ function App() {
     <ThemeProvider>
       <LanguageProvider>
         <SoundProvider>
-          <Header />
+          <div className={styles.appLayout}>
+            <Header />
+            <main className={styles.main}>
+              {/* seções (Hero, About, Projects, Contact) entram aqui */}
+            </main>
+            <Footer />
+          </div>
         </SoundProvider>
       </LanguageProvider>
     </ThemeProvider>

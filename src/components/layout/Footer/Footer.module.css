@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  transition: var(--transition-theme);
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.logo {
+  height: 52px;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    order: -1;
+  }
+}
