@@ -3,6 +3,7 @@ import Footer from './components/layout/Footer/Footer'
 import { SoundProvider } from './context/SoundProvider'
 import { ThemeProvider } from './context/ThemeProvider'
 import { LanguageProvider } from './context/LanguageProvider'
+import Hero from './components/sections/Hero/Hero'
 import styles from './App.module.css'
 import './styles/global.css'
 
@@ -16,6 +17,7 @@ function App() {
             <Header />
             <main className={styles.main}>
               {/* seções (Hero, About, Projects, Contact) entram aqui */}
+              <Hero />
             </main>
             <Footer />
           </div>
