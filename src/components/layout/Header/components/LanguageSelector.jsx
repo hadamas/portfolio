@@ -1,5 +1,5 @@
 import { Listbox } from '@headlessui/react'
-import { Globe, Check } from 'lucide-react'
+import { Languages, Check } from 'lucide-react'
 import { useLanguageContext } from '../../../../hooks/useLanguageContext'
 import { LANGUAGES } from '../../../../data/languages'
 import { translations } from '../../../../i18n/translations'
@@ -12,7 +12,7 @@ function LanguageSelector() {
     <Listbox value={language} onChange={selectLanguage}>
       <div className={styles.wrapper}>
         <Listbox.Button className={styles.trigger} aria-label="Selecionar idioma">
-          <Globe size={20} />
+          <Languages size={20} />
         </Listbox.Button>
 
         <Listbox.Options className={styles.dropdown}>
