@@ -4,18 +4,24 @@ import { SoundContext } from './SoundContext'
 import buttonClickSfx from '../assets/sounds/button-click.mp3'
 import menuUpSfx from '../assets/sounds/menu-up.mp3'
 import menuDownSfx from '../assets/sounds/menu-down.mp3'
+import typeSfx from '../assets/sounds/type.mp3'
 
 export function SoundProvider({ children }) {
   const [enabled, setEnabled] = useState(true)
   const [playButtonSound] = useSound(buttonClickSfx, { volume: 0.5 })
   const [playMenuUpRaw] = useSound(menuUpSfx, { volume: 0.5 })
   const [playMenuDownRaw] = useSound(menuDownSfx, { volume: 0.5 })
+  const [playTypeRaw] = useSound(typeSfx, { volume: 0.3 })
 
   const toggleEnabled = useCallback(() => setEnabled((prev) => !prev), [])
 
   const playMenuOpenSound = useCallback(() => {
     if (enabled) playMenuUpRaw()
   }, [enabled, playMenuUpRaw])
+
+  const playTypeSound = useCallback(() => {
+    if (enabled) playTypeRaw()
+  }, [enabled, playTypeRaw])
 
   const playMenuCloseSound = useCallback(() => {
     if (enabled) playMenuDownRaw()
@@ -37,7 +43,7 @@ export function SoundProvider({ children }) {
   }, [enabled, playButtonSound])
 
   return (
-    <SoundContext.Provider value={{ enabled, toggleEnabled, playMenuOpenSound, playMenuCloseSound }}>
+    <SoundContext.Provider value={{ enabled, toggleEnabled, playMenuOpenSound, playMenuCloseSound, playTypeSound }}>
       {children}
     </SoundContext.Provider>
   )
