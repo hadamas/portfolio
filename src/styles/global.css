@@ -16,6 +16,10 @@
   --background-image: url('../assets/images/background.png');
 }
 
+:root[lang='ja'] {
+  --font-nav: 'NotoSerifJP', system-ui, sans-serif;
+}
+
 [data-theme='dark'] {
   --color-bg: #172122;
   --color-text: #ffffff;
@@ -32,6 +36,14 @@
 @font-face {
   font-family: 'Rock3D';
   src: url('/fonts/Dokdo-Regular.woff2') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NotoSerifJP';
+  src: url('/fonts/NotoSerifJP.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
