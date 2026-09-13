@@ -11,6 +11,7 @@ function App() {
     <ThemeProvider>
       <LanguageProvider>
         <SoundProvider>
+          <div className={styles.backgroundLayer} />
           <div className={styles.appLayout}>
             <Header />
             <main className={styles.main}>

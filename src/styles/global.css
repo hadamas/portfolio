@@ -13,6 +13,7 @@
 
   --transition-theme: background-color 0.2s ease, color 0.2s ease;
   --header-height: 96px;
+  --background-image: url('../assets/images/background.png');
 }
 
 [data-theme='dark'] {
@@ -25,6 +26,7 @@
   --color-border: rgba(255, 255, 255, 0.12);
   --color-button-hover: rgb(237, 233, 110);
   --color-link-hover: #ff70c0;
+  --background-image: url('../assets/images/background-dark.png');
 }
 
 @font-face {
