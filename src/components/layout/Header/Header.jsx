@@ -4,6 +4,7 @@ import SoundToggle from './components/SoundToggle'
 import LanguageSelector from './components/LanguageSelector'
 import ThemeToggle from './components/ThemeToggle'
 import MobileMenu from './components/MobileMenu'
+import { useSoundContext } from '../../../hooks/useSoundContext'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { translations } from '../../../i18n/translations'
 import { MOBILE_BREAKPOINT } from '../../../constants/breakpoints'
@@ -18,6 +19,7 @@ const NAV_ITEMS = [
 
 function Header() {
   const { language } = useLanguageContext()
+  const { playMenuOpenSound, playMenuCloseSound } = useSoundContext()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const nav = translations[language.code].nav
@@ -41,6 +43,18 @@ function Header() {
     mobileQuery.addEventListener('change', handleChange)
     return () => mobileQuery.removeEventListener('change', handleChange)
   }, [])
+
+  function handleMenuToggle() {
+    setIsMobileMenuOpen((prev) => {
+      const next = !prev
+      if (next) {
+        playMenuOpenSound()
+      } else {
+        playMenuCloseSound()
+      }
+      return next
+    })
+  }
 
   return (
     <header className={styles.header}>
@@ -66,7 +80,8 @@ function Header() {
 
       <button
         className={styles.menuButton}
-        onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+        onClick={handleMenuToggle}
+        data-no-sound
         aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
         aria-expanded={isMobileMenuOpen}
       >
