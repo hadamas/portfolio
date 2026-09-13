@@ -4,7 +4,7 @@
   align-items: center;
   gap: 2rem;
   padding: 1rem 2rem;
-  background-color: var(--color-surface);
+  /* background-color: var(--color-surface); */
   transition: var(--transition-theme);
   height: var(--header-height);
 }
@@ -23,7 +23,8 @@
 .nav a {
   text-decoration: none;
   color: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-family: var(--font-nav);
 }
 
 .nav a:hover {

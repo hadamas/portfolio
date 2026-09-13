@@ -1,14 +1,15 @@
 /* Breakpoints do projeto: mobile até 767px, desktop/tablet a partir de 768px */
 :root {
-  --color-bg: #ffffff; //ou essa cor #f6f5ef
+  --color-bg: #ffffff; /* ou essa cor #f6f5ef */
   --color-text: #000000;
-  --color-surface: #ffffff;  //ou essa cor #f6f5ef
+  --color-surface: #ffffff;  /*ou essa cor #f6f5ef */
   --color-surface-hover: #f4f4f5;
   --color-text-muted: #6b7280;
   --color-accent: #3b82f6;
   --color-border: rgba(0, 0, 0, 0.08);
   --color-button-hover: rgba(112, 203, 255, 0.85);
   --color-link-hover: #ec7f58;
+  --font-nav: 'Rock3D', system-ui, sans-serif;
 
   --transition-theme: background-color 0.2s ease, color 0.2s ease;
   --header-height: 96px;
@@ -24,6 +25,14 @@
   --color-border: rgba(255, 255, 255, 0.12);
   --color-button-hover: rgb(237, 233, 110);
   --color-link-hover: #ff70c0;
+}
+
+@font-face {
+  font-family: 'Rock3D';
+  src: url('/fonts/Dokdo-Regular.woff2') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 *,
