@@ -15,7 +15,7 @@ function renderWithProviders(ui) {
 describe('Footer', () => {
   it('renderiza o logo', () => {
     renderWithProviders(<Footer />)
-    expect(screen.getByAltText('alanis-logo')).toBeInTheDocument()
+    expect(screen.getByText('AHª')).toBeInTheDocument()
   })
 
   it('renderiza o texto de copyright com o ano atual', () => {

@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import logoLight from '../../../assets/images/logo.png'
-import logoDark from '../../../assets/images/logo-dark.png'
 import SoundToggle from './components/SoundToggle'
 import LanguageSelector from './components/LanguageSelector'
 import ThemeToggle from './components/ThemeToggle'
 import MobileMenu from './components/MobileMenu'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
-import { useThemeContext } from '../../../hooks/useThemeContext'
 import { translations } from '../../../i18n/translations'
 import { MOBILE_BREAKPOINT } from '../../../constants/breakpoints'
 import styles from './Header.module.css'
@@ -21,11 +18,9 @@ const NAV_ITEMS = [
 
 function Header() {
   const { language } = useLanguageContext()
-  const { theme } = useThemeContext()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const nav = translations[language.code].nav
-  const logo = theme === 'dark' ? logoDark : logoLight
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
@@ -50,7 +45,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img src={logo} alt="alanis-logo" />
+        <p>AHª</p>
       </div>
 
       <nav className={styles.nav} aria-label="Navegação principal">

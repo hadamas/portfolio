@@ -9,8 +9,11 @@
   height: var(--header-height);
 }
 
-.logo img {
+.logo p {
   height: 62px;
+  display: flex;
+  font-family: var(--font-nav);
+  align-items: center;
 }
 
 .nav ul {

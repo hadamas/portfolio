@@ -18,7 +18,7 @@ function renderWithProviders(ui) {
 describe('Header', () => {
   it('renderiza o logo', () => {
     renderWithProviders(<Header />)
-    expect(screen.getByAltText('alanis-logo')).toBeInTheDocument()
+    expect(screen.getByText('AHª')).toBeInTheDocument()
   })
 
   it('renderiza os links de navegação (desktop + mobile)', () => {

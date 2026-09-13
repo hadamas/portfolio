@@ -10,12 +10,14 @@
 
 .copyright {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   color: var(--color-text-muted);
 }
 
 .logo {
-  height: 52px;
+  display: flex;
+  font-family: var(--font-nav);
+  align-items: center;
 }
 
 @media (max-width: 767px) {
