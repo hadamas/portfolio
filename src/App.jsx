@@ -1,9 +1,10 @@
 import Header from './components/layout/Header/Header'
 import Footer from './components/layout/Footer/Footer'
+import SectionFlipBook from './components/layout/SectionFlipBook/SectionFlipBook'
 import { SoundProvider } from './context/SoundProvider'
 import { ThemeProvider } from './context/ThemeProvider'
 import { LanguageProvider } from './context/LanguageProvider'
-import Hero from './components/sections/Hero/Hero'
+import { NavigationProvider } from './context/NavigationProvider'
 import styles from './App.module.css'
 import './styles/global.css'
 
@@ -12,15 +13,16 @@ function App() {
     <ThemeProvider>
       <LanguageProvider>
         <SoundProvider>
-          <div className={styles.backgroundLayer} />
-          <div className={styles.appLayout}>
-            <Header />
-            <main className={styles.main}>
-              {/* seções (Hero, About, Projects, Contact) entram aqui */}
-              <Hero />
-            </main>
-            <Footer />
-          </div>
+          <NavigationProvider>
+            <div className={styles.backgroundLayer} />
+            <div className={styles.appLayout}>
+              <Header />
+                <main className={styles.main}>
+                  <SectionFlipBook />
+                </main>
+              <Footer />
+            </div>
+          </NavigationProvider>
         </SoundProvider>
       </LanguageProvider>
     </ThemeProvider>

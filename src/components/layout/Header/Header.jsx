@@ -8,19 +8,15 @@ import { useSoundContext } from '../../../hooks/useSoundContext'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { translations } from '../../../i18n/translations'
 import { MOBILE_BREAKPOINT } from '../../../constants/breakpoints'
+import { useNavigationContext } from '../../../hooks/useNavigationContext'
+import { SECTIONS } from '../../../data/sections'
 import styles from './Header.module.css'
-
-const NAV_ITEMS = [
-  { href: '#home', key: 'home' },
-  { href: '#about', key: 'about' },
-  { href: '#projects', key: 'projects' },
-  { href: '#contact', key: 'contact' },
-]
 
 function Header() {
   const { language } = useLanguageContext()
   const { playMenuOpenSound, playMenuCloseSound } = useSoundContext()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { goToSection } = useNavigationContext()
 
   const nav = translations[language.code].nav
 
@@ -64,9 +60,11 @@ function Header() {
 
       <nav className={styles.nav} aria-label="Navegação principal">
         <ul>
-          {NAV_ITEMS.map((item) => (
+          {SECTIONS.map((item) => (
             <li key={item.href}>
-              <a href={item.href}>{nav[item.key]}</a>
+              <button type="button" onClick={() => goToSection(item.key)}>
+                {nav[item.key]}
+              </button>
             </li>
           ))}
         </ul>
@@ -89,7 +87,7 @@ function Header() {
       </button>
 
       <MobileMenu
-        navItems={NAV_ITEMS}
+        navItems={SECTIONS}
         nav={nav}
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}

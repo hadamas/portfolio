@@ -5,6 +5,7 @@ import MobileMenu from './MobileMenu'
 import { SoundProvider } from '../../../../context/SoundProvider'
 import { ThemeProvider } from '../../../../context/ThemeProvider'
 import { LanguageProvider } from '../../../../context/LanguageProvider'
+import { NavigationProvider } from '../../../../context/NavigationProvider'
 
 const navItems = [{ href: '#home', key: 'home' }]
 const nav = { home: 'Home' }
@@ -13,7 +14,9 @@ function renderWithProviders(ui) {
   return render(
     <ThemeProvider>
       <LanguageProvider>
-        <SoundProvider>{ui}</SoundProvider>
+        <SoundProvider>
+          <NavigationProvider>{ui}</NavigationProvider>
+        </SoundProvider>
       </LanguageProvider>
     </ThemeProvider>
   )

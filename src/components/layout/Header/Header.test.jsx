@@ -4,12 +4,15 @@ import Header from './Header'
 import { SoundProvider } from '../../../context/SoundProvider'
 import { ThemeProvider } from '../../../context/ThemeProvider'
 import { LanguageProvider } from '../../../context/LanguageProvider'
+import { NavigationProvider } from '../../../context/NavigationProvider'
 
 function renderWithProviders(ui) {
   return render(
     <ThemeProvider>
       <LanguageProvider>
-        <SoundProvider>{ui}</SoundProvider>
+        <SoundProvider>
+          <NavigationProvider>{ui}</NavigationProvider>
+        </SoundProvider>
       </LanguageProvider>
     </ThemeProvider>
   )
