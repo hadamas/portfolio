@@ -1,6 +1,6 @@
 import Header from './components/layout/Header/Header'
 import Footer from './components/layout/Footer/Footer'
-import SectionFlipBook from './components/layout/SectionFlipBook/SectionFlipBook'
+import SectionStage from './components/layout/SectionStage/SectionStage'
 import { SoundProvider } from './context/SoundProvider'
 import { ThemeProvider } from './context/ThemeProvider'
 import { LanguageProvider } from './context/LanguageProvider'
@@ -18,7 +18,7 @@ function App() {
             <div className={styles.appLayout}>
               <Header />
                 <main className={styles.main}>
-                  <SectionFlipBook />
+                  <SectionStage />
                 </main>
               <Footer />
             </div>

@@ -1,26 +1,23 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { NavigationContext } from './NavigationContext'
+import { useSoundContext } from '../hooks/useSoundContext'
 import { SECTIONS } from '../data/sections'
 
 export function NavigationProvider({ children }) {
-  const flipBookRef = useRef(null)
+  const { playFlipSound } = useSoundContext()
   const [activeSection, setActiveSection] = useState(SECTIONS[0].key)
 
-  const goToSection = useCallback((key) => {
-    const targetIndex = SECTIONS.findIndex((section) => section.key === key)
-    if (targetIndex === -1) return
-    flipBookRef.current?.pageFlip()?.flip(targetIndex)
-  }, [])
-
-  const handleFlip = useCallback((event) => {
-    const section = SECTIONS[event.data]
-    if (section) setActiveSection(section.key)
-  }, [])
+  const goToSection = useCallback(
+    (key) => {
+      if (key === activeSection) return
+      playFlipSound()
+      setActiveSection(key)
+    },
+    [activeSection, playFlipSound]
+  )
 
   return (
-    <NavigationContext.Provider
-      value={{ activeSection, goToSection, flipBookRef, handleFlip }}
-    >
+    <NavigationContext.Provider value={{ activeSection, goToSection }}>
       {children}
     </NavigationContext.Provider>
   )
