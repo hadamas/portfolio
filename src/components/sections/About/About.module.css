@@ -1,5 +1,185 @@
 .section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   height: 100%;
-  padding: 3rem 4rem;
+  padding: 2rem;
   color: var(--color-text);
+}
+
+.row {
+  display: flex;
+}
+
+/* Title and Subtitle Row */
+.nameBlock {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  align-self: flex-start;
+}
+
+.profession {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+/* Profile Pic and Text Row and future animation */
+.introRow {
+  align-items: center;
+  gap: 3rem;
+}
+
+.profilePic {
+  flex: 0 0 240px;
+  display: flex;
+  justify-content: center;
+}
+
+.photo {
+  width: 100%;
+  max-width: 240px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.introColumn {
+  flex: 1;
+}
+
+.animationColumn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.animationPlaceholder {
+  width: 100%;
+  min-height: 200px;
+  border: 1px dashed var(--color-border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Languages, Education and Experience Row*/
+.gridRow {
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.column {
+  flex: 1;
+}
+
+.columnTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+}
+
+.list li {
+  display: flex;
+  flex-direction: column; 
+}
+
+.itemPeriod {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* Stack Row */
+
+.stackRows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stackRowLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.toolsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.toolItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.toolIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.toolIconPlaceholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: var(--color-surface-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.toolName {
+  position: absolute;
+  bottom: -1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.toolItem:hover .toolName,
+.toolItem.toolItemActive .toolName {
+  opacity: 1;
+}
+
+.stackSection {
+  flex-direction: column;
 }

@@ -9,7 +9,33 @@ export const translations = {
       subtitle: "I'm a Software developer and aspiring animator",
       delete: 'Delete',
     },
+    about: {
+      name: 'Alanis Hadama',
+      profession: 'Software Developer',
+      intro: 'I create at the intersection of code and art, where people feel before they understand.',
+      animationPlaceholder: '3D animation coming soon',
+      languages: 'Languages',
+      education: 'Education',
+      experience: 'Experience',
+      stack: 'Stack',
+      stackLanguagesLabel: 'Languages',
+      languagesSpoken: [
+        { name: 'Portuguese', level: 'Native' },
+        { name: 'English', level: 'Fluent' },
+        { name: 'French', level: 'Conversational B2' },
+        { name: 'Japanese', level: 'Basic' },
+      ],
+      educationItems: [
+        { period: '2028', title: 'Cefet/RJ', subtitle: "Bachelor's Degree in Computer Science" },
+        { period: '2025', title: '42 Rio | 42 Network', subtitle: 'Software Engineering' },
+      ],
+      experienceItems: [
+        { period: 'sep 2024 - sep 2026', title: "Petros: Petrobra's Pension Fund", subtitle: 'Full Stack Software Developer Intern' },
+        { period: 'since 2023', title: 'Gatos de Francisca', subtitle: 'Volunteer work at a cat shelter' },
+      ],
+    },
   },
+
   pt: {
     nav: { home: 'Início', about: 'Sobre', projects: 'Projetos', contact: 'Contato' },
     languageNames: { en: 'Inglês', pt: 'Português', fr: 'Francês', ja: 'Japonês' },
@@ -20,7 +46,33 @@ export const translations = {
       subtitle: 'Sou desenvolvedora de Software e aspirante a animadora',
       delete: 'Apagar',
     },
+    about: {
+      name: 'Alanis Hadama',
+      profession: 'Desenvolvedora de Software',
+      intro: 'Crio na fronteira entre código e arte, onde as pessoas sentem antes de entender.',
+      animationPlaceholder: 'Animação 3D em breve',
+      languages: 'Idiomas',
+      education: 'Educação',
+      experience: 'Experiência',
+      stack: 'Stack',
+      stackLanguagesLabel: 'Linguagens',
+      languagesSpoken: [
+        { name: 'Português', level: 'Nativa' },
+        { name: 'Inglês', level: 'Fluente' },
+        { name: 'Francês', level: 'Intermediário B2' },
+        { name: 'Japonês', level: 'Básico' },
+      ],
+      educationItems: [
+        { period: '2028', title: 'Cefet/RJ', subtitle: "Bachelor's Degree in Computer Science" },
+        { period: '2025', title: '42 Rio | 42 Network', subtitle: 'Engenharia de Software' },
+      ],
+      experienceItems: [
+        { period: 'sep 2024 - sep 2026', title: "Petros: Fundação Petrobras de Seguridade Social", subtitle: 'Estagirária em Desenvolvimento de Software Full Stack ' },
+        { period: 'desde 2023', title: 'Gatos de Francisca', subtitle: 'Trabalho voluntário no Gatil' },
+      ],
+    },
   },
+
   fr: {
     nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', contact: 'Contact' },
     languageNames: { en: 'Anglais', pt: 'Portugais', fr: 'Français', ja: 'Japonais' },
@@ -30,6 +82,31 @@ export const translations = {
       title: "Salut ! Je m'appelle Alanis",
       subtitle: 'Je suis développeuse de logiciels et animatrice 3D en devenir',
       delete: 'Supprimer',
+    },
+    about: {
+      name: 'Alanis Hadama',
+      profession: 'Développeuse Logicielle',
+      intro: "Je crée à la croisée du code et de l'art, là où l'on ressent avant de comprendre.",
+      animationPlaceholder: 'Animation 3D à venir',
+      languages: 'Langues',
+      education: 'Formation',
+      experience: 'Expérience',
+      stack: 'Stack',
+      stackLanguagesLabel: 'Langages',
+      languagesSpoken: [
+        { name: 'Portugais', level: 'Langue maternelle' },
+        { name: 'Anglais', level: 'Courant' },
+        { name: 'Français', level: 'Conversationnel B2' },
+        { name: 'Japonais', level: 'Basique' },
+      ],
+      educationItems: [
+        { period: '2028', title: 'Cefet/RJ', subtitle: "Bachelor's Degree in Computer Science" },
+        { period: '2025', title: '42 Rio | 42 Network (École)', subtitle: 'Software Engineering' },
+      ],
+      experienceItems: [
+        { period: 'sept. 2024 - sept. 2026', title: 'Petros : Fondation Petrobras de Sécurité Sociale', subtitle: 'Stagiaire en développement Full Stack' },
+        { period: 'depuis 2023', title: 'Gatos de Francisca', subtitle: 'Bénévole dans un refuge pour chats' },
+      ],
     },
   },
   ja: {
@@ -41,6 +118,31 @@ export const translations = {
       title: 'こんにちは!アラニスです',
       subtitle: 'ソフトウェアエンジニア、アニメーター志望',
       delete: '削除',
+    },
+    about: {
+      name: '波田間アラニス',
+      profession: 'ソフトウェア開発者',
+      intro: 'コードとアートが交わる場所で、理解するよりも先に心が動くものをつくっています。',
+      animationPlaceholder: '3Dアニメーション近日公開',
+      languages: '言語',
+      education: '学歴',
+      experience: '職歴',
+      stack: 'スタック',
+      stackLanguagesLabel: 'プログラミング言語',
+      languagesSpoken: [
+        { name: 'ポルトガル語', level: 'ネイティブ' },
+        { name: '英語', level: '流暢' },
+        { name: 'フランス語', level: '中級' },
+        { name: '日本語', level: 'N4レベル' },
+      ],
+      educationItems: [
+        { period: '2028', title: 'Cefet/RJ', subtitle: 'コンピュータサイエンス学士' },
+        { period: '2025', title: '42 Rio | 42 Network', subtitle: 'ソフトウェアエンジニアリングコース' },
+      ],
+      experienceItems: [
+        { period: '2024年9月 - 2026年9月', title: 'Petros - Petrobras年金基金', subtitle: 'フルスタック開発インターン' },
+        { period: '2023年から', title: 'Gatos de Francisca', subtitle: '猫保護施設でのボランティア活動' },
+      ],
     },
   },
 }
