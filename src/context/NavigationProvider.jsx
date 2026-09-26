@@ -1,23 +1,13 @@
-import { useState, useCallback } from 'react'
+import { useCallback } from 'react'
 import { NavigationContext } from './NavigationContext'
-import { useSoundContext } from '../hooks/useSoundContext'
-import { SECTIONS } from '../data/sections'
 
 export function NavigationProvider({ children }) {
-  const { playFlipSound } = useSoundContext()
-  const [activeSection, setActiveSection] = useState(SECTIONS[0].key)
-
-  const goToSection = useCallback(
-    (key) => {
-      if (key === activeSection) return
-      playFlipSound()
-      setActiveSection(key)
-    },
-    [activeSection, playFlipSound]
-  )
+  const goToSection = useCallback((key) => {
+    document.getElementById(key)?.scrollIntoView({ behavior: 'smooth' })
+  }, [])
 
   return (
-    <NavigationContext.Provider value={{ activeSection, goToSection }}>
+    <NavigationContext.Provider value={{ goToSection }}>
       {children}
     </NavigationContext.Provider>
   )

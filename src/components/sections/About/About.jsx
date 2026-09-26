@@ -124,44 +124,47 @@ function About() {
         </div>
       </div>
 
-      {STACK_CATEGORIES.map((category) => {
-        const label = category.labelKey ? about[category.labelKey] : category.label
-        return (
-          <div key={label} className={styles.stackRow}>
-            <span className={styles.stackRowLabel}>{label}</span>
-            <div className={styles.toolsGrid}>
-              {category.tools.map((tool) => {
-                const toolId = `${label}-${tool.name}`
-                return (
-                  <button
-                    key={tool.name}
-                    type="button"
-                    className={`${styles.toolItem} ${
-                      activeTool === toolId ? styles.toolItemActive : ''
-                    }`}
-                    onClick={() =>
-                      setActiveTool((current) => (current === toolId ? null : toolId))
-                    }
-                  >
-                    {tool.slug ? (
-                      <img
-                        src={`https://skillicons.dev/icons?i=${tool.slug}`}
-                        alt={tool.name}
-                        className={styles.toolIcon}
-                      />
-                    ) : (
-                      <span className={styles.toolIconPlaceholder}>
-                        {tool.name.slice(0, 2).toUpperCase()}
-                      </span>
-                    )}
-                    <span className={styles.toolName}>{tool.name}</span>
-                  </button>
-                )
-              })}
+      <div className={`${styles.row} ${styles.stackSection}`}>
+        <h2 className={styles.columnTitle}>{about.stack}</h2>
+        {STACK_CATEGORIES.map((category) => {
+          const label = category.labelKey ? about[category.labelKey] : category.label
+          return (
+            <div key={label} className={styles.stackRow}>
+              <span className={styles.stackRowLabel}>{label}</span>
+              <div className={styles.toolsGrid}>
+                {category.tools.map((tool) => {
+                  const toolId = `${label}-${tool.name}`
+                  return (
+                    <button
+                      key={tool.name}
+                      type="button"
+                      className={`${styles.toolItem} ${
+                        activeTool === toolId ? styles.toolItemActive : ''
+                      }`}
+                      onClick={() =>
+                        setActiveTool((current) => (current === toolId ? null : toolId))
+                      }
+                    >
+                      {tool.slug ? (
+                        <img
+                          src={`https://skillicons.dev/icons?i=${tool.slug}`}
+                          alt={tool.name}
+                          className={styles.toolIcon}
+                        />
+                      ) : (
+                        <span className={styles.toolIconPlaceholder}>
+                          {tool.name.slice(0, 2).toUpperCase()}
+                        </span>
+                      )}
+                      <span className={styles.toolName}>{tool.name}</span>
+                    </button>
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
 
     </section>
   )

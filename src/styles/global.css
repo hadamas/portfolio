@@ -9,11 +9,12 @@
   --color-border: rgba(0, 0, 0, 0.08);
   --color-button-hover: rgba(112, 203, 255, 0.85);
   --color-link-hover: #ec7f58;
-  --font-nav: 'Rock3D', system-ui, sans-serif;
+  --font-nav: 'ClashGrotesk', system-ui, sans-serif;
+  --font-text: 'ClashGrotesk', system-ui, sans-serif;;
 
   --transition-theme: background-color 0.2s ease, color 0.2s ease;
   --header-height: 96px;
-  --background-image: url('../assets/images/background.png');
+  --background-image: url('../assets/images/sky-bg.png');
 }
 
 :root[lang='ja'] {
@@ -44,6 +45,22 @@
 @font-face {
   font-family: 'NotoSerifJP';
   src: url('/fonts/NotoSerifJP.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ClashGrotesk';
+  src: url('/fonts/ClashGrotesk.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url('/fonts/JosefinSans.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

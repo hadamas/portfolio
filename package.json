@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.10",
+    "@react-spring/parallax": "^10.1.2",
     "howler": "^2.2.4",
     "lucide-react": "^1.41.0",
     "react": "^19.2.8",
