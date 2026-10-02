@@ -1,0 +1,149 @@
+.card {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(480px, 78vw);
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background-color: var(--color-surface-hover);
+  outline-offset: 4px;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden; /* recorta o zoom da mídia nos cantos arredondados do card */
+}
+
+.mediaEl {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  filter: blur(0);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  background: linear-gradient(135deg, var(--color-surface-hover), transparent);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0) 58%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.linkButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+}
+
+.linkButton:hover {
+  background-color: var(--color-button-hover);
+}
+
+.caption {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: var(--font-nav);
+}
+
+/* Hover revela zoom + blur na mídia e o texto/ícone -- só onde existe
+   hover de verdade (mouse/trackpad). :focus-within cobre o Tab do
+   teclado (o próprio card e o ícone de link são focáveis). */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .mediaEl,
+  .card:focus-within .mediaEl {
+    transform: scale(1.08);
+    filter: blur(6px);
+  }
+
+  .card:hover .overlay,
+  .card:focus-within .overlay {
+    opacity: 1;
+  }
+
+  .card:hover .linkButton,
+  .card:focus-within .linkButton {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card:hover .caption,
+  .card:focus-within .caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Telas sem hover (touch): sem gesto de "passar o mouse", então o
+   texto já fica visível por padrão, sem o zoom/blur na mídia. */
+@media not all and (hover: hover) and (pointer: fine) {
+  .overlay,
+  .caption,
+  .linkButton {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mediaEl,
+  .overlay,
+  .linkButton,
+  .caption {
+    transition: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: min(340px, 82vw);
+  }
+}

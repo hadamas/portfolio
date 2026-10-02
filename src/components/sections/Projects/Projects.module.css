@@ -1,5 +1,200 @@
 .section {
+  position: relative;
+  z-index: 0; /* own stacking context — see Hero/About for why */
+  overflow: hidden;
   min-height: 100vh;
   padding: 3rem 4rem;
   color: var(--color-text);
+  pointer-events: none;
+  display: flex;
+  align-items: stretch;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.section > * {
+  pointer-events: auto; /* re-enable events for the section's real
+                            content, since .section now disables them
+                            by default */
+}
+
+/* Funde o fundo 3D na cor de fundo da pagina, suavizando a transicao
+   pra proxima secao em vez de cortar seco */
+.section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5vh;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ---------- Coluna esquerda: título fixo + texto do card ativo ---------- */
+
+.left {
+  position: relative;
+  flex: 0 0 clamp(260px, 32vw, 420px);
+}
+
+/* O "Projects" em si -- sempre o mesmo texto/tamanho, então ancorar com
+   translateY(-100%) é seguro: a borda de baixo do título fica sempre
+   grudada em exatamente 50% da altura da coluna, e ele nunca se move. */
+.titleAnchor {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  padding-bottom: 0.5rem;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  font-family: var(--font-nav);
+  /* index.css (template antigo) ainda define `h2 { color }` reagindo ao
+     tema do SISTEMA OPERACIONAL (prefers-color-scheme), não ao toggle de
+     tema do próprio site -- força explicitamente a cor certa aqui. */
+  color: var(--color-text);
+}
+
+/* O texto do projeto ativo começa sempre no mesmo ponto fixo (50% + o
+   respiro do padding-top abaixo), e só cresce pra baixo conforme o
+   tamanho do texto -- por isso o título acima nunca sobe ou desce. */
+.textAnchor {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  padding-top: 0.5rem;
+}
+
+.textInner {
+  animation: fadeIn 0.3s ease;
+}
+
+.activeCategory {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.activeTitle {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: var(--font-nav);
+  color: var(--color-text); /* mesmo motivo do .title acima */
+}
+
+.description {
+  margin: 0;
+  max-width: 32ch;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .textInner {
+    animation: none;
+  }
+}
+
+/* ---------- Coluna direita: carrossel horizontal + setas ---------- */
+
+.right {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0; /* permite o filho flex encolher abaixo do conteúdo, senão o overflow-x não aparece */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 0.5rem 0.25rem;
+  scrollbar-width: none; /* Firefox -- as setas já são o controle visível */
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.arrowButton {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.arrowButton:hover:not(:disabled) {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-accent);
+}
+
+.arrowButton:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ---------- Mobile: empilha, sem posicionamento fixo (não tem mais
+   "metade da tela" relevante numa coluna curta e empilhada) ---------- */
+
+@media (max-width: 767px) {
+  .section {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .left {
+    flex: none;
+  }
+
+  .titleAnchor,
+  .textAnchor {
+    position: static;
+    transform: none;
+    padding: 0;
+  }
+
+  .textAnchor {
+    margin-top: 1rem;
+  }
+
+  .right {
+    justify-content: flex-start;
+  }
 }
