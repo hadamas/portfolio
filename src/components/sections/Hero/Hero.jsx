@@ -25,39 +25,6 @@ function Hero() {
 
   return (
     <section className={styles.hero}>
-      <div className={styles.modelWrapper}>
-        <iframe
-          className={styles.modelEmbed}
-          title="Bee on a break"
-          frameBorder="0"
-          allowFullScreen
-          mozallowfullscreen="true"
-          webkitallowfullscreen="true"
-          allow="autoplay; fullscreen; xr-spatial-tracking"
-          xr-spatial-tracking="true"
-          execution-while-out-of-viewport="true"
-          execution-while-not-rendered="true"
-          web-share="true"
-          src="https://sketchfab.com/models/61523457f49a4f308862009bfa1580e2/embed?autostart=1"
-        />
-        <p className={styles.modelCredit}>
-          <a
-            href="https://sketchfab.com/3d-models/bee-on-a-break-61523457f49a4f308862009bfa1580e2"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >
-            Bee on a break
-          </a>{' '}
-          by{' '}
-          <a href="https://sketchfab.com/tlal" target="_blank" rel="noopener noreferrer nofollow">
-            Tlal
-          </a>{' '}
-          on{' '}
-          <a href="https://sketchfab.com" target="_blank" rel="noopener noreferrer nofollow">
-            Sketchfab
-          </a>
-        </p>
-      </div>
 
       {isVisible && (
         <div className={styles.textBlock}>
