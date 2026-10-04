@@ -1,4 +1,5 @@
 .section {
   min-height: 100vh;
-  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100vh);
+  scroll-margin-top: var(--header-height);
 }
