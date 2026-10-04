@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { translations } from '../../../i18n/translations'
-import profilePic from '../../../assets/images/profile2.png'
+import profilePic from '../../../assets/images/profile-pic.jpeg'
 import styles from './About.module.css'
 
 const STACK_CATEGORIES = [
@@ -78,9 +78,6 @@ function About() {
         </div>
         <div className={styles.introColumn}>
           <p>{about.intro}</p>
-        </div>
-        <div className={styles.animationColumn}>
-          <div className={styles.animationPlaceholder}>{about.animationPlaceholder}</div>
         </div>
       </div>
 
