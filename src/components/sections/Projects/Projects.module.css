@@ -1,6 +1,5 @@
 .section {
   position: relative;
-  z-index: 0; /* own stacking context — see Hero/About for why */
   overflow: hidden;
   min-height: 100vh;
   padding: 3rem 4rem;
@@ -17,30 +16,14 @@
                             by default */
 }
 
-/* Funde o fundo 3D na cor de fundo da pagina, suavizando a transicao
-   pra proxima secao em vez de cortar seco */
-.section::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 5vh;
-  background: linear-gradient(to bottom, transparent, var(--color-bg));
-  pointer-events: none;
-  z-index: -1;
-}
 
-/* ---------- Coluna esquerda: título fixo + texto do card ativo ---------- */
+/* ---------- Left Colmumn: fixed title + selected card text ---------- */
 
 .left {
   position: relative;
   flex: 0 0 clamp(260px, 32vw, 420px);
 }
 
-/* O "Projects" em si -- sempre o mesmo texto/tamanho, então ancorar com
-   translateY(-100%) é seguro: a borda de baixo do título fica sempre
-   grudada em exatamente 50% da altura da coluna, e ele nunca se move. */
 .titleAnchor {
   position: absolute;
   top: 50%;
@@ -55,15 +38,9 @@
   font-size: clamp(2.25rem, 4vw, 3rem);
   font-weight: 700;
   font-family: var(--font-nav);
-  /* index.css (template antigo) ainda define `h2 { color }` reagindo ao
-     tema do SISTEMA OPERACIONAL (prefers-color-scheme), não ao toggle de
-     tema do próprio site -- força explicitamente a cor certa aqui. */
   color: var(--color-text);
 }
 
-/* O texto do projeto ativo começa sempre no mesmo ponto fixo (50% + o
-   respiro do padding-top abaixo), e só cresce pra baixo conforme o
-   tamanho do texto -- por isso o título acima nunca sobe ou desce. */
 .textAnchor {
   position: absolute;
   top: 50%;
@@ -88,7 +65,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   font-family: var(--font-nav);
-  color: var(--color-text); /* mesmo motivo do .title acima */
+  color: var(--color-text);
 }
 
 .description {
@@ -115,12 +92,12 @@
   }
 }
 
-/* ---------- Coluna direita: carrossel horizontal + setas ---------- */
+/* ---------- Right Column: Passing cards + arrows ---------- */
 
 .right {
   position: relative;
   flex: 1 1 auto;
-  min-width: 0; /* permite o filho flex encolher abaixo do conteúdo, senão o overflow-x não aparece */
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,7 +110,7 @@
   overflow-x: auto;
   scroll-snap-type: x proximity;
   padding: 0.5rem 0.25rem;
-  scrollbar-width: none; /* Firefox -- as setas já são o controle visível */
+  scrollbar-width: none;
 }
 
 .track::-webkit-scrollbar {

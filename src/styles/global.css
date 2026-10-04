@@ -13,7 +13,7 @@
   --font-text: 'ClashGrotesk', system-ui, sans-serif;;
 
   --transition-theme: background-color 0.2s ease, color 0.2s ease;
-  --header-height: 96px;
+  --header-height: 56px;
   --background-image: url('../assets/images/sky-bg.png');
 }
 
