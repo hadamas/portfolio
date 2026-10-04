@@ -19,6 +19,9 @@ export const translations = {
       experience: 'Experience',
       stack: 'Stack',
       stackLanguagesLabel: 'Languages',
+      stackFrontendLabel: 'Front-end',
+      stackBackendLabel: 'Back-end',
+      stackCloudLabel: 'Cloud & DevOps',
       languagesSpoken: [
         { name: 'Portuguese', level: 'Native' },
         { name: 'English', level: 'Fluent' },
@@ -33,6 +36,33 @@ export const translations = {
         { period: 'sep 2024 - sep 2026', title: "Petros: Petrobra's Pension Fund", subtitle: 'Full Stack Software Developer Intern' },
         { period: 'since 2023', title: 'Gatos de Francisca', subtitle: 'Volunteer work at a cat shelter' },
       ],
+    },
+    projects: {
+      prevLabel: 'Previous project',
+      nextLabel: 'Next project',
+      linkLabel: 'View project',
+      items: {
+        'project-01': {
+          category: 'Web Development | Full Stack',
+          title: 'Adopt With Me',
+          description: 'A website still in development for a cat shelter, featuring an integrated online store for fundraising, a database for adoption management, and cards displaying the cats currently available for adoption, along with information about the project and its cause.',
+        },
+        'project-02': {
+          category: '3D Modeling & Animation | Web Development',
+          title: '3D Lab',
+          description: 'A collection of 3D modeling and animation projects built with Blender, Three.js, React Three Fiber, and Drei. The models are also freely available for use on Sketchfab.',
+        },
+        'project-03': {
+          category: '42 Rio | 42 École',
+          title: 'Common Core — 42 Rio',
+          description: 'A set of projects written in C during the Common Core at 42 Rio, a peer-to-peer, teacher-free programming curriculum, from the start of the program through rank 3. Highlights include libft, a custom reimplementation of core libc functions; minitalk, inter-process communication using UNIX signals; and push_swap, a sorting algorithm built with two stacks and a minimal number of instructions — projects spanning C fundamentals and memory management to algorithmic logic and systems programming.',
+        },
+        'project-04': {
+          category: '2D Game | 42 Rio',
+          title: 'So_Long',
+          description: 'A small 2D top-down game written in C with MiniLibX, built as part of the 42 Rio Common Core. So_Long is the first graphical project of the curriculum: the goal is to build a tiny tile-based game from scratch — opening a window, loading sprites, reading a map from a file, handling keyboard input, and managing memory cleanly, all in plain C. In this version, you pilot a spaceship through a maze, collecting every coin on the map and reaching the exit in as few moves as possible.',
+        },
+      },
     },
   },
 
@@ -56,6 +86,9 @@ export const translations = {
       experience: 'Experiência',
       stack: 'Stack',
       stackLanguagesLabel: 'Linguagens',
+      stackFrontendLabel: 'Front-end',
+      stackBackendLabel: 'Back-end',
+      stackCloudLabel: 'Cloud & DevOps',
       languagesSpoken: [
         { name: 'Português', level: 'Nativa' },
         { name: 'Inglês', level: 'Fluente' },
@@ -70,6 +103,33 @@ export const translations = {
         { period: 'sep 2024 - sep 2026', title: "Petros: Fundação Petrobras de Seguridade Social", subtitle: 'Estagirária em Desenvolvimento de Software Full Stack ' },
         { period: 'desde 2023', title: 'Gatos de Francisca', subtitle: 'Trabalho voluntário no Gatil' },
       ],
+    },
+    projects: {
+      prevLabel: 'Projeto anterior',
+      nextLabel: 'Próximo projeto',
+      linkLabel: 'Ver projeto',
+      items: {
+        'project-01': {
+          category: 'Desenvolvimento Web | Full Stack',
+          title: 'Gatos da Francisca',
+          description: 'Website ainda em desenvolvimento para um gatil, com loja virtual integrada para arrecadação de fundos, banco de dados para gestão das adoções e cards exibindo os gatos disponíveis, além de informações sobre o projeto e a causa.',
+        },
+        'project-02': {
+          category: 'Modelagem & Animação 3D | Desenvolvimento Web',
+          title: 'Coleção de Objetos 3D',
+          description: 'Coleção de projetos de modelagem e animação 3D, desenvolvidos com Blender, Three.js, React Three Fiber e Drei. Os modelos também são disponibilizados gratuitamente para uso no Sketchfab.',
+        },
+        'project-03': {
+          category: '42 Rio | 42 École',
+          title: 'Common Core',
+          description: 'Conjunto de projetos desenvolvidos em C durante o Common Core da 42 Rio, curso de programação com metodologia peer-to-peer e sem professores, do início até o rank 3. Entre eles estão a libft, biblioteca própria com reimplementações de funções da libc; minitalk, comunicação entre processos via sinais UNIX; e push_swap, algoritmo de ordenação com duas pilhas e número mínimo de instruções — projetos que cobrem desde fundamentos de C e gerenciamento de memória até lógica de algoritmos e programação de sistemas.',
+        },
+        'project-04': {
+          category: 'Jogo 2D | 42 Rio',
+          title: 'So_Long',
+          description: 'Pequeno jogo 2D em visão top-down, escrito em C com a MiniLibX, desenvolvido como parte do Common Core da 42 Rio. So_Long é o primeiro projeto gráfico do curso: o objetivo é construir, do zero, um jogo baseado em tiles — abrindo uma janela, carregando sprites, lendo um mapa a partir de um arquivo, tratando entradas do teclado e gerenciando memória corretamente, tudo em C puro. Nesta versão, você pilota uma nave espacial por um labirinto, coletando todas as moedas do mapa e alcançando a saída usando o menor número de movimentos possível.',
+        },
+      },
     },
   },
 
@@ -93,6 +153,9 @@ export const translations = {
       experience: 'Expérience',
       stack: 'Stack',
       stackLanguagesLabel: 'Langages',
+      stackFrontendLabel: 'Front-end',
+      stackBackendLabel: 'Back-end',
+      stackCloudLabel: 'Cloud et DevOps',
       languagesSpoken: [
         { name: 'Portugais', level: 'Langue maternelle' },
         { name: 'Anglais', level: 'Courant' },
@@ -107,6 +170,33 @@ export const translations = {
         { period: 'sept. 2024 - sept. 2026', title: 'Petros : Fondation Petrobras de Sécurité Sociale', subtitle: 'Stagiaire en développement Full Stack' },
         { period: 'depuis 2023', title: 'Gatos de Francisca', subtitle: 'Bénévole dans un refuge pour chats' },
       ],
+    },
+    projects: {
+      prevLabel: 'Projet précédent',
+      nextLabel: 'Projet suivant',
+      linkLabel: 'Voir le projet',
+      items: {
+        'project-01': {
+          category: 'Développement Web | Full Stack',
+          title: 'Adoptons Ensemble',
+          description: "Site web encore en développement pour un refuge de chats, avec une boutique en ligne intégrée pour la collecte de fonds, une base de données pour la gestion des adoptions et des fiches présentant les chats actuellement disponibles à l'adoption, ainsi que des informations sur le projet et sa cause.",
+        },
+        'project-02': {
+          category: 'Modélisation & Animation 3D | Développement Web',
+          title: 'Labo 3D',
+          description: "Collection de projets de modélisation et d'animation 3D réalisés avec Blender, Three.js, React Three Fiber et Drei. Les modèles sont également disponibles gratuitement sur Sketchfab.",
+        },
+        'project-03': {
+          category: '42 Rio | 42 École',
+          title: 'Common Core — 42 Rio',
+          description: "Ensemble de projets écrits en C durant le Common Core de la 42 Rio, un cursus de programmation en peer-to-peer, sans professeurs, du début du programme jusqu'au rank 3. On y trouve notamment libft, une réimplémentation personnelle de fonctions de la libc ; minitalk, une communication inter-processus basée sur les signaux UNIX ; et push_swap, un algorithme de tri utilisant deux piles avec un nombre minimal d'instructions — des projets qui couvrent aussi bien les fondamentaux du C et la gestion de la mémoire que la logique algorithmique et la programmation système.",
+        },
+        'project-04': {
+          category: 'Jeu 2D | 42 Rio',
+          title: 'So_Long',
+          description: "Petit jeu 2D en vue de dessus, écrit en C avec MiniLibX, réalisé dans le cadre du Common Core de la 42 Rio. So_Long est le premier projet graphique du cursus : l'objectif est de construire, à partir de zéro, un jeu basé sur des tuiles — ouvrir une fenêtre, charger des sprites, lire une carte depuis un fichier, gérer les entrées clavier et la mémoire proprement, le tout en C pur. Dans cette version, vous pilotez un vaisseau spatial à travers un labyrinthe, en récoltant toutes les pièces de la carte avant d'atteindre la sortie en un minimum de déplacements.",
+        },
+      },
     },
   },
   ja: {
@@ -129,6 +219,9 @@ export const translations = {
       experience: '職歴',
       stack: 'スタック',
       stackLanguagesLabel: 'プログラミング言語',
+      stackFrontendLabel: 'フロントエンド',
+      stackBackendLabel: 'バックエンド',
+      stackCloudLabel: 'クラウド＆DevOps',
       languagesSpoken: [
         { name: 'ポルトガル語', level: 'ネイティブ' },
         { name: '英語', level: '流暢' },
@@ -143,6 +236,33 @@ export const translations = {
         { period: '2024年9月 - 2026年9月', title: 'Petros - Petrobras年金基金', subtitle: 'フルスタック開発インターン' },
         { period: '2023年から', title: 'Gatos de Francisca', subtitle: '猫保護施設でのボランティア活動' },
       ],
+    },
+    projects: {
+      prevLabel: '前のプロジェクト',
+      nextLabel: '次のプロジェクト',
+      linkLabel: 'プロジェクトを見る',
+      items: {
+        'project-01': {
+          category: 'ウェブ開発 | フルスタック',
+          title: 'いっしょに里親になろう',
+          description: '保護猫シェルターのための開発中のウェブサイト。寄付金を集めるためのオンラインショップ機能、里親管理のためのデータベース、現在里親を募集している猫たちをカード形式で紹介する機能に加え、プロジェクトや活動についての情報も掲載しています。',
+        },
+        'project-02': {
+          category: '3Dモデリング・アニメーション | ウェブ開発',
+          title: '3Dラボ',
+          description: 'Blender、Three.js、React Three Fiber、Dreiを使用して制作した3Dモデリング・アニメーション作品集です。制作したモデルはSketchfabでも無料で公開しています。',
+        },
+        'project-03': {
+          category: '42 Rio | 42 École',
+          title: 'Common Core — 42 Rio',
+          description: '42 Rio のCommon Core期間中にC言語で開発したプロジェクト群です。42は教師を置かず、ピア・ツー・ピア方式で学ぶプログラミングカリキュラムで、ここではカリキュラム開始からrank 3までの成果をまとめています。代表的なものに、libc関数を自作で再実装したlibft、UNIXシグナルを使ったプロセス間通信を扱うminitalk、2本のスタックと最小限の命令数でソートを行うpush_swapなどがあり、C言語の基礎やメモリ管理からアルゴリズムの論理、システムプログラミングまでを幅広くカバーしています。',
+        },
+        'project-04': {
+          category: '2Dゲーム | 42 Rio',
+          title: 'So_Long',
+          description: '42 Rio のCommon Coreの一環として、C言語とMiniLibXで制作した小さな2Dトップダウンゲームです。So_Longはカリキュラム最初のグラフィカルなプロジェクトで、ウィンドウを開く、スプライトを読み込む、ファイルからマップを読み込む、キー入力を処理する、メモリを適切に管理するといった工程を、純粋なC言語だけでゼロから作り上げることが目標です。このバージョンでは宇宙船を操作して迷路を進み、マップ上のコインをすべて集めてから、できるだけ少ない移動回数でゴールを目指します。',
+        },
+      },
     },
   },
 }

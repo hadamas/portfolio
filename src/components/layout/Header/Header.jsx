@@ -61,7 +61,7 @@ function Header() {
       <nav className={styles.nav} aria-label="Navegação principal">
         <ul>
           {SECTIONS.map((item) => (
-            <li key={item.href}>
+            <li key={item.key}>
               <button type="button" onClick={() => goToSection(item.key)}>
                 {nav[item.key]}
               </button>

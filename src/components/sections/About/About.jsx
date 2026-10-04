@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { translations } from '../../../i18n/translations'
 import profilePic from '../../../assets/images/profile-pic.jpeg'
+import StackFlowingMenu from './StackFlowingMenu/StackFlowingMenu'
 import styles from './About.module.css'
 
 const STACK_CATEGORIES = [
@@ -16,7 +16,7 @@ const STACK_CATEGORIES = [
     ],
   },
   {
-    label: 'Front-end',
+    labelKey: 'stackFrontendLabel',
     tools: [
       { name: 'React', slug: 'react' },
       { name: 'Vue', slug: 'vue' },
@@ -31,7 +31,7 @@ const STACK_CATEGORIES = [
     ],
   },
   {
-    label: 'Back-end',
+    labelKey: 'stackBackendLabel',
     tools: [
       { name: 'Node.js', slug: 'nodejs' },
       { name: 'Express.js', slug: 'express' },
@@ -44,7 +44,7 @@ const STACK_CATEGORIES = [
     ],
   },
   {
-    label: 'Cloud & DevOps',
+    labelKey: 'stackCloudLabel',
     tools: [
       { name: 'Docker', slug: 'docker' },
       { name: 'AWS', slug: 'aws' },
@@ -59,7 +59,6 @@ const STACK_CATEGORIES = [
 function About() {
   const { language } = useLanguageContext()
   const about = translations[language.code].about
-  const [activeTool, setActiveTool] = useState(null)
 
   return (
     <section className={styles.section}>
@@ -123,44 +122,13 @@ function About() {
 
       <div className={`${styles.row} ${styles.stackSection}`}>
         <h2 className={styles.columnTitle}>{about.stack}</h2>
-        {STACK_CATEGORIES.map((category) => {
-          const label = category.labelKey ? about[category.labelKey] : category.label
-          return (
-            <div key={label} className={styles.stackRow}>
-              <span className={styles.stackRowLabel}>{label}</span>
-              <div className={styles.toolsGrid}>
-                {category.tools.map((tool) => {
-                  const toolId = `${label}-${tool.name}`
-                  return (
-                    <button
-                      key={tool.name}
-                      type="button"
-                      className={`${styles.toolItem} ${
-                        activeTool === toolId ? styles.toolItemActive : ''
-                      }`}
-                      onClick={() =>
-                        setActiveTool((current) => (current === toolId ? null : toolId))
-                      }
-                    >
-                      {tool.slug ? (
-                        <img
-                          src={`https://skillicons.dev/icons?i=${tool.slug}`}
-                          alt={tool.name}
-                          className={styles.toolIcon}
-                        />
-                      ) : (
-                        <span className={styles.toolIconPlaceholder}>
-                          {tool.name.slice(0, 2).toUpperCase()}
-                        </span>
-                      )}
-                      <span className={styles.toolName}>{tool.name}</span>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-          )
-        })}
+        <StackFlowingMenu
+          categories={STACK_CATEGORIES.map((category) => ({
+            id: category.labelKey,
+            label: about[category.labelKey],
+            tools: category.tools,
+          }))}
+        />
       </div>
 
     </section>

@@ -21,16 +21,27 @@ describe('About', () => {
     expect(screen.getAllByText('Languages').length).toBeGreaterThanOrEqual(2)
   })
 
-  it('alterna a classe ativa ao clicar no ícone da ferramenta', async () => {
-    const user = userEvent.setup()
+  it('renderiza as 4 categorias da stack como linhas do menu', () => {
     renderWithProvider(<About />)
-    const reactButton = screen.getByAltText('React').closest('button')
-    await user.click(reactButton)
-    expect(reactButton.className).toMatch(/toolItemActive/)
+    for (const label of ['Front-end', 'Back-end', 'Cloud & DevOps']) {
+      expect(screen.getByRole('button', { name: label })).toBeInTheDocument()
+    }
   })
 
-  it('mostra placeholder e nome para ferramentas sem ícone (ex: REST APIs)', () => {
+  it('alterna o estado ativo da linha ao clicar', async () => {
+    const user = userEvent.setup()
     renderWithProvider(<About />)
-    expect(screen.getByText('REST APIs')).toBeInTheDocument()
+    const row = screen.getByRole('button', { name: 'Front-end' })
+    expect(row).toHaveAttribute('aria-pressed', 'false')
+    await user.click(row)
+    expect(row).toHaveAttribute('aria-pressed', 'true')
+    await user.click(row)
+    expect(row).toHaveAttribute('aria-pressed', 'false')
+  })
+
+  it('mostra os ícones das ferramentas na faixa, com fallback pra as sem ícone (ex: REST APIs)', () => {
+    renderWithProvider(<About />)
+    expect(screen.getAllByAltText('React').length).toBeGreaterThan(0)
+    expect(screen.getAllByTitle('REST APIs').length).toBeGreaterThan(0)
   })
 })
