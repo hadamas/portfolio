@@ -70,7 +70,7 @@ function About() {
         </div>
       </div>
 
-      {/* Fileira 2 — foto / apresentação / espaço da animação 3D */}
+      {/* Photo + presentation text */}
       <div className={`${styles.row} ${styles.introRow}`}>
         <div className={styles.profilePic}>
           <img src={profilePic} alt="Alanis Hadama profile picture" className={styles.photo} />
@@ -120,8 +120,8 @@ function About() {
         </div>
       </div>
 
+      {/* Stack flowing rows */}
       <div className={`${styles.row} ${styles.stackSection}`}>
-        <h2 className={styles.columnTitle}>{about.stack}</h2>
         <StackFlowingMenu
           categories={STACK_CATEGORIES.map((category) => ({
             id: category.labelKey,
