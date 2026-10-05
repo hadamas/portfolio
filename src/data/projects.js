@@ -1,16 +1,11 @@
-// Dados estruturais dos projetos -- sem texto visível aqui. Os textos
-// (categoria, título, descrição) ficam em `i18n/translations.js`, dentro de
-// `projects.items`, usando o mesmo `id` que está aqui embaixo.
-//
-// `media: null` faz o card mostrar um placeholder. Pra colocar a arte real
-// de um projeto, troque por:
-//   media: { type: 'image', src: suaImagem }   (import no topo do arquivo)
-//   media: { type: 'video', src: seuVideo }    (toca em loop, mudo, sem controles)
-// `link: null` esconde o ícone de link no card. Troque por uma URL quando
-// tiver onde apontar (site, repositório, etc).
+import CatShelter from '../assets/images/project-01.webp'
+import Models3D from '../assets/images/project-02.GIF'
+import CommonCore from '../assets/images/project-03.jpeg'
+import Game2D from '../assets/images/project-04.webp'
+
 export const PROJECTS = [
-  { id: 'project-01', link: null, media: null },
-  { id: 'project-02', link: null, media: null },
-  { id: 'project-03', link: null, media: null },
-  { id: 'project-04', link: null, media: null },
+  { id: 'project-01', link: "https://github.com/hadamas/cat-shelter-website-project", media: { type: 'image', src: CatShelter } },
+  { id: 'project-02', link: "https://sketchfab.com/alanis.hadama", media: { type: 'image', src: Models3D } },
+  { id: 'project-03', link: "https://github.com/hadamas/42-common-core", media: { type: 'image', src: CommonCore } },
+  { id: 'project-04', link: "https://github.com/hadamas/game", media: { type: 'image', src: Game2D } },
 ]

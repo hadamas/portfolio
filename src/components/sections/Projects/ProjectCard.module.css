@@ -1,19 +1,17 @@
 .card {
   position: relative;
-  flex: 0 0 auto;
-  width: min(480px, 78vw);
-  aspect-ratio: 16 / 10;
-  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
   overflow: hidden;
-  scroll-snap-align: start;
   background-color: var(--color-surface-hover);
-  outline-offset: 4px;
+  outline-offset: -4px;
 }
 
 .media {
   position: absolute;
   inset: 0;
-  overflow: hidden; /* recorta o zoom da mídia nos cantos arredondados do card */
+  overflow: hidden;
 }
 
 .mediaEl {
@@ -94,9 +92,8 @@
   font-family: var(--font-nav);
 }
 
-/* Hover revela zoom + blur na mídia e o texto/ícone -- só onde existe
-   hover de verdade (mouse/trackpad). :focus-within cobre o Tab do
-   teclado (o próprio card e o ícone de link são focáveis). */
+/* hover reveals media zoom/blur and text/icon
+   :focus-within covers keyboard Tab navigation */
 @media (hover: hover) and (pointer: fine) {
   .card:hover .mediaEl,
   .card:focus-within .mediaEl {
@@ -122,8 +119,7 @@
   }
 }
 
-/* Telas sem hover (touch): sem gesto de "passar o mouse", então o
-   texto já fica visível por padrão, sem o zoom/blur na mídia. */
+/* on touch devices, show text by default without media zoom/blur */
 @media not all and (hover: hover) and (pointer: fine) {
   .overlay,
   .caption,
@@ -139,11 +135,5 @@
   .linkButton,
   .caption {
     transition: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .card {
-    width: min(340px, 82vw);
   }
 }

@@ -2,11 +2,11 @@
   position: relative;
   overflow: hidden;
   min-height: 100vh;
-  padding: 3rem 4rem;
   color: var(--color-text);
   pointer-events: none;
   display: flex;
   align-items: stretch;
+  justify-content: center;
   gap: clamp(2rem, 6vw, 5rem);
 }
 
@@ -17,16 +17,17 @@
 }
 
 
-/* ---------- Left Colmumn: fixed title + selected card text ---------- */
+/* Left Colmumn: fixed title + selected card text */
 
 .left {
   position: relative;
   flex: 0 0 clamp(260px, 32vw, 420px);
+  text-align: start;
 }
 
 .titleAnchor {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 0;
   right: 0;
   transform: translateY(-100%);
@@ -43,7 +44,7 @@
 
 .textAnchor {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 0;
   right: 0;
   padding-top: 0.5rem;
@@ -92,33 +93,23 @@
   }
 }
 
-/* ---------- Right Column: Passing cards + arrows ---------- */
+/* Right Column: Passing cards + arrows */
 
-.right {
+/* Carousel max width (cardWidth + spread on both sides);
+   shrinks on smaller screens but won't stretch beyond this. */
+.right { 
   position: relative;
-  flex: 1 1 auto;
+  flex: 0 1 620px;
   min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5rem;
-}
-
-.track {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  padding: 0.5rem 0.25rem;
-  scrollbar-width: none;
-}
-
-.track::-webkit-scrollbar {
-  display: none;
+  gap: 0.5rem;
 }
 
 .controls {
   display: flex;
+  justify-content: center;
   gap: 0.75rem;
 }
 
@@ -146,9 +137,8 @@
   cursor: default;
 }
 
-/* ---------- Mobile: empilha, sem posicionamento fixo (não tem mais
-   "metade da tela" relevante numa coluna curta e empilhada) ---------- */
-
+/* Mobile: stack cards without fixed positioning; half-screen centering
+   no longer applies to the shorter stacked layout. */
 @media (max-width: 767px) {
   .section {
     flex-direction: column;
@@ -172,6 +162,7 @@
   }
 
   .right {
+    flex: none;
     justify-content: flex-start;
   }
 }

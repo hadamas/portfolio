@@ -44,7 +44,7 @@ export const translations = {
       items: {
         'project-01': {
           category: 'Web Development | Full Stack',
-          title: 'Adopt With Me',
+          title: 'Gatos de Francisca',
           description: 'A website still in development for a cat shelter, featuring an integrated online store for fundraising, a database for adoption management, and cards displaying the cats currently available for adoption, along with information about the project and its cause.',
         },
         'project-02': {
@@ -111,7 +111,7 @@ export const translations = {
       items: {
         'project-01': {
           category: 'Desenvolvimento Web | Full Stack',
-          title: 'Gatos da Francisca',
+          title: 'Gatos de Francisca',
           description: 'Website ainda em desenvolvimento para um gatil, com loja virtual integrada para arrecadação de fundos, banco de dados para gestão das adoções e cards exibindo os gatos disponíveis, além de informações sobre o projeto e a causa.',
         },
         'project-02': {
@@ -178,7 +178,7 @@ export const translations = {
       items: {
         'project-01': {
           category: 'Développement Web | Full Stack',
-          title: 'Adoptons Ensemble',
+          title: 'Gatos de Francisca',
           description: "Site web encore en développement pour un refuge de chats, avec une boutique en ligne intégrée pour la collecte de fonds, une base de données pour la gestion des adoptions et des fiches présentant les chats actuellement disponibles à l'adoption, ainsi que des informations sur le projet et sa cause.",
         },
         'project-02': {
@@ -244,7 +244,7 @@ export const translations = {
       items: {
         'project-01': {
           category: 'ウェブ開発 | フルスタック',
-          title: 'いっしょに里親になろう',
+          title: 'Gatos de Francisca',
           description: '保護猫シェルターのための開発中のウェブサイト。寄付金を集めるためのオンラインショップ機能、里親管理のためのデータベース、現在里親を募集している猫たちをカード形式で紹介する機能に加え、プロジェクトや活動についての情報も掲載しています。',
         },
         'project-02': {

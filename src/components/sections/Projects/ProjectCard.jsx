@@ -1,19 +1,12 @@
-import { forwardRef } from 'react'
 import { ArrowUpRight, Image as ImageIcon } from 'lucide-react'
 import styles from './ProjectCard.module.css'
 
-// Card de projeto: mídia (foto/video/gif ou placeholder) preenchendo o
-// card inteiro; categoria + título + ícone de link ficam escondidos até
-// o hover (ou foco, pelo teclado) -- nesse momento a mídia dá um leve
-// zoom e fica desfocada, e o texto/ícone aparecem por cima. Em telas sem
-// hover de verdade (touch), o texto já fica visível por padrão -- ver
-// media query no final do CSS.
-const ProjectCard = forwardRef(function ProjectCard({ project, text, linkLabel }, ref) {
+function ProjectCard({ project, text, linkLabel }) {
   const { link, media } = project
   const { category, title } = text
 
   return (
-    <article ref={ref} className={styles.card} tabIndex={0}>
+    <article className={styles.card} tabIndex={0}>
       <div className={styles.media}>
         {media?.type === 'video' ? (
           <video
@@ -53,6 +46,6 @@ const ProjectCard = forwardRef(function ProjectCard({ project, text, linkLabel }
       </div>
     </article>
   )
-})
+}
 
 export default ProjectCard
