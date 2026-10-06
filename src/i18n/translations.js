@@ -4,6 +4,7 @@ export const translations = {
     languageNames: { en: 'English', pt: 'Portuguese', fr: 'French', ja: 'Japanese' },
     resumeButton: 'Resume',
     footer: { copyright: 'All rights reserved' },
+    contact: { emailLabel: 'EMAIL', socialLabel: 'SOCIAL MEDIA' },
     hero: {
       title: "Hi! I'm Alanis",
       subtitle: "I'm a Software developer and aspiring animator",
@@ -71,6 +72,7 @@ export const translations = {
     languageNames: { en: 'Inglês', pt: 'Português', fr: 'Francês', ja: 'Japonês' },
     resumeButton: 'Currículo',
     footer: { copyright: 'Todos os direitos reservados' },
+    contact: { emailLabel: 'E-MAIL', socialLabel: 'REDES SOCIAIS' },
     hero: {
       title: 'Oi! Me chamo Alanis',
       subtitle: 'Sou desenvolvedora de Software e aspirante a animadora',
@@ -138,6 +140,7 @@ export const translations = {
     languageNames: { en: 'Anglais', pt: 'Portugais', fr: 'Français', ja: 'Japonais' },
     resumeButton: 'CV',
     footer: { copyright: 'Tous droits réservés' },
+    contact: { emailLabel: 'E-MAIL', socialLabel: 'RÉSEAUX SOCIAUX' },
     hero: {
       title: "Salut ! Je m'appelle Alanis",
       subtitle: 'Je suis développeuse de logiciels et animatrice 3D en devenir',
@@ -204,6 +207,7 @@ export const translations = {
     languageNames: { en: '英語', pt: 'ポルトガル語', fr: 'フランス語', ja: '日本語' },
     resumeButton: '履歴書',
     footer: { copyright: '全著作権所有' },
+    contact: { emailLabel: 'メール', socialLabel: 'SNS' },
     hero: {
       title: 'こんにちは!アラニスです',
       subtitle: 'ソフトウェアエンジニア、アニメーター志望',

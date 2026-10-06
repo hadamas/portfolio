@@ -1,8 +1,8 @@
 /* Breakpoints do projeto: mobile até 767px, desktop/tablet a partir de 768px */
 :root {
-  --color-bg: #f6f5ef; /* ou essa cor #f6f5ef */
+  --color-bg: #ebeaf1; /* ou essa cor #f6f5ef */
   --color-bg-stack: #f6f5ef;
-  --color-text: #000000;
+  --color-text: #646b88;
   --color-surface: #ffffff;  /*ou essa cor #f6f5ef */
   --color-surface-hover: #f4f4f5;
   --color-text-muted: #6b7280;
@@ -23,9 +23,9 @@
 }
 
 [data-theme='dark'] {
-  --color-bg: #172122;
+  --color-bg: #313139;
   --color-bg-stack: #172122;
-  --color-text: #ffffff;
+  --color-text: #e7e6ee;
   --color-surface: #172122;
   --color-surface-hover: rgba(255, 255, 255, 0.08);
   --color-text-muted: #a1a1aa;
