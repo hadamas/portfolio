@@ -92,3 +92,9 @@ body {
   white-space: nowrap;
   border: 0;
 }
+
+/* Smooth cursor: hides the native cursor while SmoothCursor is active */
+html.smooth-cursor-active,
+html.smooth-cursor-active * {
+  cursor: none !important;
+}

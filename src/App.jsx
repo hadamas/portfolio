@@ -1,5 +1,6 @@
 import Header from './components/layout/Header/Header'
 import Noise from './components/layout/Noise/Noise'
+import SmoothCursor from './components/layout/SmoothCursor/SmoothCursor'
 import Footer from './components/layout/Footer/Footer'
 import SectionStack from './components/layout/SectionStack/SectionStack'
 import { SoundProvider } from './context/SoundProvider'
@@ -17,6 +18,7 @@ function App() {
           <NavigationProvider>
             <div className={styles.backgroundLayer} />
             <Noise />
+            <SmoothCursor />
             <div className={styles.appLayout}>
               <Header />
                 <main className={styles.main}>
