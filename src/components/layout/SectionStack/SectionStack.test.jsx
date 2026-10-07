@@ -24,6 +24,6 @@ describe('SectionStack', () => {
     act(() => vi.runAllTimers())
 
     expect(screen.getByText("Hi! I'm Alanis")).toBeInTheDocument()
-    expect(screen.getByText('Alanis Hadama')).toBeInTheDocument() // do About
+    expect(screen.getByText('Hadama')).toBeInTheDocument() //my name from About that it's divided by ''
   })
 })

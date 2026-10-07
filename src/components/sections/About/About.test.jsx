@@ -11,7 +11,7 @@ function renderWithProvider(ui) {
 describe('About', () => {
   it('renderiza nome e profissão', () => {
     renderWithProvider(<About />)
-    expect(screen.getByText('Alanis Hadama')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Alanis Hadama')
     expect(screen.getByText('Software Developer')).toBeInTheDocument()
   })
 

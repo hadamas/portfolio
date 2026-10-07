@@ -11,51 +11,168 @@
   display: flex;
 }
 
-/* Title and Subtitle Row */
-.nameBlock {
-  display: inline-flex;
+/* my name + profession + photo + presentation text */
+.card {
+  --cta-size: 88px;
+  --card-gap: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
   flex-direction: column;
-  align-items: flex-end;
-}
-
-.name {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 0;
-  align-self: flex-start;
-  color: var(--color-text);
+  gap: 0.5rem;
+  width: fit-content;
+  max-width: 100%;
+  align-self: center;
+  text-align: left;
 }
 
 .profession {
-  margin: 0.5rem 0 0;
-  font-size: 1.1rem;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
-/* Profile Pic and Text Row and future animation */
-.introRow {
+.cardBody {
+  display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: var(--card-gap);
 }
 
-.profilePic {
-  flex: 0 0 240px;
-  display: flex;
-  justify-content: center;
+.photoWrap {
+  flex: 0 0 clamp(260px, 28vw, 380px);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
 .photo {
+  display: block;
   width: 100%;
-  max-width: 240px;
-  border-radius: 12px;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.introColumn {
-  flex: 1;
+.card:hover .photo {
+  transform: scale(1.04);
 }
 
-/* Languages, Education and Experience Row*/
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  line-height: 1.05;
+  color: var(--color-text);
+}
+
+.firstName,
+.lastName {
+  display: block;
+}
+
+.firstName {
+  font-weight: 300;
+}
+
+.lastName {
+  font-weight: 700;
+}
+
+.introRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.intro {
+  margin: 0;
+  max-width: 22ch;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--color-text-muted);
+}
+
+.cta {
+  position: relative;
+  align-self: flex-end;
+  justify-self: flex-end;
+  flex: 0 0 var(--cta-size);
+  width: var(--cta-size);
+  height: var(--cta-size);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-decoration: none;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ctaArrow {
+  position: relative;
+  display: flex;
+  width: 22px;
+  height: 22px;
+  /* two arrows: 1st goes up, 2nd comes from the bottom */
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ctaArrow svg:nth-child(2) {
+  position: absolute;
+  left: -62px;
+  top: 62px;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+  transform: scale(1.06);
+}
+
+.cta:hover .ctaArrow,
+.cta:focus-visible .ctaArrow {
+  transform: translate(62px, -62px);
+}
+
+.cta:active {
+  transform: scale(0.96);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 767px) {
+  .cardBody {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .photoWrap {
+    flex-basis: auto;
+    width: min(100%, 320px);
+  }
+
+}
+
+/* languages, education and experience Row*/
 .gridRow {
   gap: 1rem;
   align-items: flex-start;
