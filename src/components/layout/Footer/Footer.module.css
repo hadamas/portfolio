@@ -1,28 +1,27 @@
 .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
-  /* border-top: 1px solid var(--color-border); */
-  /* background-color: var(--color-surface); */
+  padding: 0 2rem;
   transition: var(--transition-theme);
 }
 
 .copyright {
   margin: 0;
-  font-size: 0.65rem;
+  font-size: 0.5rem;
   color: var(--color-text-muted);
-}
-
-.logo {
-  display: flex;
-  font-family: var(--font-nav);
-  align-items: center;
 }
 
 @media (max-width: 767px) {
   .footer {
     flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
     text-align: center;
   }
 

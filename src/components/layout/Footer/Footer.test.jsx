@@ -13,12 +13,7 @@ function renderWithProviders(ui) {
 }
 
 describe('Footer', () => {
-  it('renderiza o logo', () => {
-    renderWithProviders(<Footer />)
-    expect(screen.getByText('AHª')).toBeInTheDocument()
-  })
-
-  it('renderiza o texto de copyright com o ano atual', () => {
+  it('renders copyright text with actual year', () => {
     renderWithProviders(<Footer />)
     const year = new Date().getFullYear()
     expect(screen.getByText(new RegExp(String(year)))).toBeInTheDocument()

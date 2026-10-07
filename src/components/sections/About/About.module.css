@@ -1,8 +1,8 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  min-height: 100vh;
+  gap: 5rem;
+  min-height: 100%;
   padding: 2rem;
   color: var(--color-text);
 }
