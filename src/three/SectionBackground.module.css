@@ -1,0 +1,15 @@
+.wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  cursor: grab;
+  pointer-events: auto; /* .hero now sets pointer-events: none, which is
+                            inherited by default -- opt this back in so
+                            OrbitControls can receive mouse/touch input */
+}
+
+.wrapper:active {
+  cursor: grabbing;
+}
