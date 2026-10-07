@@ -4,12 +4,15 @@ import SectionStack from './SectionStack'
 import { ThemeProvider } from '../../../context/ThemeProvider'
 import { LanguageProvider } from '../../../context/LanguageProvider'
 import { SoundProvider } from '../../../context/SoundProvider'
+import { NavigationProvider } from '../../../context/NavigationProvider'
 
 function renderWithProviders(ui) {
   return render(
     <ThemeProvider>
       <LanguageProvider>
-        <SoundProvider>{ui}</SoundProvider>
+        <SoundProvider>
+          <NavigationProvider>{ui}</NavigationProvider>
+        </SoundProvider>
       </LanguageProvider>
     </ThemeProvider>
   )

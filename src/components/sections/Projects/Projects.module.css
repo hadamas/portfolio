@@ -1,7 +1,7 @@
 .section {
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 100%;
   color: var(--color-text);
   pointer-events: none;
   display: flex;
