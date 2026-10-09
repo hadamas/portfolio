@@ -1,79 +1,46 @@
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 100;
+  right: 0;
+  z-index: 20;
   height: var(--header-height);
-  color: var(--font-text);
+  padding: 1.5rem clamp(1.25rem, 4.5vw, 4.5rem) 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(10rem, 16vw, 14rem);
-  padding: 0 2rem;
+  color: var(--color-text);
   transition: var(--transition-theme);
 }
 
-
-.logo p {
+.logo {
   display: flex;
-  font-family: var(--font-nav);
-  align-items: center;
-  font-weight: 800;
-}
-
-.nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav button {
+  flex-direction: column;
+  padding: 0;
   background: none;
   border: none;
   cursor: pointer;
-  font: inherit;
-  color: inherit;
+  text-align: left;
+  text-transform: uppercase;
   font-family: var(--font-nav);
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
+  font-size: clamp(1rem, 1.7vw, 1.6rem);
+  line-height: 0.95;
+  color: inherit;
 }
 
-.nav button:hover {
-  color: var(--color-link-hover);
+.logo:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.75rem);
 }
 
 .actions {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.menuButton {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  padding: 0.4rem;
-  cursor: pointer;
-  color: inherit;
-}
-
-@media (max-width: 767px) {
-  .header {
-    /* Sem o nav/ações no meio, volta a ser só logo (esquerda) e botão
-       de menu (direita) -- centralizar o grupo não faz sentido aqui. */
-    justify-content: space-between;
-  }
-
-  .nav,
-  .actions {
-    display: none;
-  }
-
-  .menuButton {
-    display: flex;
-  }
 }

@@ -1,0 +1,99 @@
+.button {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.wrapper {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.row {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.rowBottom {
+  align-items: flex-end;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.rowHorizontal {
+  position: absolute;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+.rowVertical {
+  position: absolute;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+/* hover and open share the same shape: the middle dots stretch into lines */
+.button:hover .rowHorizontal,
+.button[data-open='true'] .rowHorizontal {
+  width: 100px;
+}
+
+.button:hover .rowVertical,
+.button[data-open='true'] .rowVertical {
+  height: 100px;
+}
+
+.button:hover .middleDot,
+.button[data-open='true'] .middleDot {
+  border-radius: 5px;
+  height: 35px;
+}
+
+.button:hover .middleDotHorizontal,
+.button[data-open='true'] .middleDotHorizontal {
+  border-radius: 5px;
+  width: 35px;
+}
+
+/* Open: the whole shape turns into an X */
+.button[data-open='true'] .wrapper {
+  transform: rotate(45deg) scale(1.2);
+}

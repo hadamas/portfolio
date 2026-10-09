@@ -1,23 +1,15 @@
 .stack {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   overflow: hidden;
 }
 
 .viewport {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  /* reserved space for fixed header and footer */
+  inset: 0;
+  /* reserved space for the fixed header */
   padding-top: var(--header-height);
-  padding-bottom: var(--footer-height);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

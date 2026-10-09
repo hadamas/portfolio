@@ -14,7 +14,7 @@ const VIEWPORTS = [
 ]
 
 function SectionStack() {
-  const { activeSection } = useNavigationContext()
+  const { activeSection, isMenuOpen } = useNavigationContext()
 
   return (
     <div className={styles.stack}>
@@ -22,7 +22,7 @@ function SectionStack() {
         <ViewportSection
           key={key}
           id={key}
-          isActive={key === activeSection}
+          isActive={!isMenuOpen && key === activeSection}
           scrollable={scrollable}
         >
           <Component />

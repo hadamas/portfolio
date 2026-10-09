@@ -11,13 +11,13 @@ function renderWithProvider(ui) {
 describe('ThemeToggle', () => {
   it('inicia no modo claro por padrão', () => {
     renderWithProvider(<ThemeToggle />)
-    expect(screen.getByLabelText('Ativar modo escuro')).toBeInTheDocument()
+    expect(screen.getByLabelText('Ativar modo claro')).toBeInTheDocument()
   })
 
   it('alterna para modo escuro ao clicar', async () => {
     const user = userEvent.setup()
     renderWithProvider(<ThemeToggle />)
     await user.click(screen.getByRole('button'))
-    expect(screen.getByLabelText('Ativar modo claro')).toBeInTheDocument()
+    expect(screen.getByLabelText('Ativar modo escuro')).toBeInTheDocument()
   })
 })

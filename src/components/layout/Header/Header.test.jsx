@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, it, expect } from 'vitest'
 import Header from './Header'
 import { SoundProvider } from '../../../context/SoundProvider'
@@ -19,23 +20,24 @@ function renderWithProviders(ui) {
 }
 
 describe('Header', () => {
-  it('renderiza o logo', () => {
+  it("renders 'Name' as a logo", () => {
     renderWithProviders(<Header />)
-    expect(screen.getByText('AHª')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Alanis Hadama' })).toBeInTheDocument()
   })
 
-  it('renderiza os links de navegação (desktop + mobile)', () => {
+  it('renders control icons', () => {
     renderWithProviders(<Header />)
-    expect(screen.getAllByText('Home')).toHaveLength(2)
-    expect(screen.getAllByText('About')).toHaveLength(2)
-    expect(screen.getAllByText('Projects')).toHaveLength(2)
-    expect(screen.getAllByText('Contact')).toHaveLength(2)
+    expect(screen.getByLabelText(/desativar som|ativar som/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/selecionar idioma/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/ativar modo/i)).toBeInTheDocument()
   })
 
-  it('renderiza os controles de ação (desktop + mobile)', () => {
+  it('toggles between open and close menu', async () => {
+    const user = userEvent.setup()
     renderWithProviders(<Header />)
-    expect(screen.getAllByLabelText(/desativar som|ativar som/i)).toHaveLength(2)
-    expect(screen.getAllByLabelText(/selecionar idioma/i)).toHaveLength(2)
-    expect(screen.getAllByLabelText(/ativar modo/i)).toHaveLength(2)
+    const button = screen.getByRole('button', { name: 'Abrir menu' })
+    expect(button).toHaveAttribute('aria-expanded', 'false')
+    await user.click(button)
+    expect(screen.getByRole('button', { name: 'Fechar menu' })).toHaveAttribute('aria-expanded', 'true')
   })
 })
