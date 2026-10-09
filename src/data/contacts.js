@@ -11,5 +11,6 @@ const linkedinHref = (code) => {
 export const SOCIALS = [
   { id: 'linkedin', name: 'linkedin', href: linkedinHref },
   { id: 'github', name: 'github', href: "https://github.com/hadamas" },
-  { id: 'tiktok', name: 'tiktok', href: "https://www.tiktok.com/@guidebyhadi" },
+  // { id: 'tiktok', name: 'tiktok', href: "https://www.tiktok.com/@guidebyhadi" },
+  { id: 'codepen', name: 'codepen', href: "https://codepen.io/hadamas" },
 ]

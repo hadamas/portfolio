@@ -5,12 +5,10 @@
   width: 100%;
   z-index: 100;
   height: var(--header-height);
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(16px);
-  color: #f5f5f7;
+  color: var(--font-text);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: clamp(10rem, 16vw, 14rem);
   padding: 0 2rem;
   transition: var(--transition-theme);
