@@ -10,7 +10,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <p className={styles.copyright}>
-        Copyright © {year} Alanis Hadama. {copyrightLabel}
+        © {year} Alanis Hadama. {copyrightLabel}
       </p>
     </footer>
   )

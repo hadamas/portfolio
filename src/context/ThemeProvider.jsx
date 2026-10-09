@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { ThemeContext } from './ThemeContext'
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState('dark')
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)

@@ -10,12 +10,16 @@
   --color-border: rgba(0, 0, 0, 0.08);
   --color-button-hover: rgba(112, 203, 255, 0.85);
   --color-link-hover: #ec7f58;
-  --font-nav: 'ClashGrotesk', system-ui, sans-serif;
+  --font-nav: 'DrukeWideBold', system-ui, sans-serif;
   --font-text: 'ClashGrotesk', system-ui, sans-serif;;
-
   --transition-theme: background-color 0.2s ease, color 0.2s ease;
-  --header-height: 56px;
-  --background-image: url('../assets/images/sky-bg.png');
+  --header-height: 88px;
+  /* Page frame: thin border with the site inside, solid color outside */
+  --frame-side: clamp(12px, 3.3vw, 52px);
+  --frame-top: clamp(12px, 2.2vw, 34px);
+  --frame-bottom: clamp(30px, 2.2vw, 34px);
+  --frame-outside: #d3d3d3;
+  --frame-line: #3c3c43;
 }
 
 :root[lang='ja'] {
@@ -23,6 +27,8 @@
 }
 
 [data-theme='dark'] {
+  --frame-outside: #3c3c43;
+  --frame-line: #d3d3d3;
   --color-bg: #313139;
   --color-bg-stack: #172122;
   --color-text: #e7e6ee;
@@ -68,15 +74,30 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'DrukeWideBold';
+  src: url('/fonts/DrukWideBold.woff2') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* always without scroll bar */
+  overscroll-behavior: none;
+}
+
 body {
   margin: 0;
-  background-color: var(--color-bg);
+  background-color: var(--frame-outside);
   color: var(--color-text);
   transition: var(--transition-theme);
 }
@@ -97,4 +118,10 @@ body {
 html.smooth-cursor-active,
 html.smooth-cursor-active * {
   cursor: none !important;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: 72px;
+  }
 }

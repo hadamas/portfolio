@@ -1,22 +1,25 @@
-.backgroundLayer {
+/* Outer area: solid color. The frame is the thin border that holds the site. */
+.shell {
   position: fixed;
   inset: 0;
-  z-index: -1;
-  /* background-image: var(--background-image); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; 
+  overflow: hidden;
+  background-color: var(--frame-outside);
+  transition: var(--transition-theme);
 }
 
-.appLayout {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
+.frame {
+  position: absolute;
+  top: var(--frame-top);
+  bottom: var(--frame-bottom);
+  left: var(--frame-side);
+  right: var(--frame-side);
   overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--frame-line);
+  transition: border-color 0.2s ease;
 }
 
 .main {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
 }
