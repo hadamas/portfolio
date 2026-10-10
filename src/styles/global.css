@@ -3,6 +3,7 @@
   --color-bg: #ebeaf1; /* ou essa cor #f6f5ef */
   --color-bg-stack: #f6f5ef;
   --color-text: #646b88;
+  --color-text: #4d5368;
   --color-surface: #ffffff;  /*ou essa cor #f6f5ef */
   --color-surface-hover: #f4f4f5;
   --color-text-muted: #6b7280;
@@ -32,13 +33,14 @@
   --color-bg: #313139;
   --color-bg-stack: #172122;
   --color-text: #e7e6ee;
+  --color-text-hover: #bdbcc2;
   --color-surface: #172122;
   --color-surface-hover: rgba(255, 255, 255, 0.08);
   --color-text-muted: #a1a1aa;
   --color-accent: #60a5fa;
   --color-border: rgba(255, 255, 255, 0.12);
   --color-button-hover: rgb(237, 233, 110);
-  --color-link-hover: #ff70c0;
+  --color-link-hover: #70cbff;
   --background-image: url('../assets/images/background-dark.png');
 }
 

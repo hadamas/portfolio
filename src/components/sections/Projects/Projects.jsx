@@ -1,71 +1,111 @@
-import { useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useState } from 'react'
+import { Image as ImageIcon } from 'lucide-react'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { translations } from '../../../i18n/translations'
 import { PROJECTS } from '../../../data/projects'
-import DepthCarousel from './DepthCarousel'
-import ProjectCard from './ProjectCard'
 import styles from './Projects.module.css'
+
+// 'YYYY-MM' -> 'MM.YYYY'
+function formatDate(date) {
+  const [year, month] = date.split('-')
+  return `${month}.${year}`
+}
 
 function Projects() {
   const { language } = useLanguageContext()
   const copy = translations[language.code].projects
   const sectionTitle = translations[language.code].nav.projects
 
-  const carouselRef = useRef(null)
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeId, setActiveId] = useState(PROJECTS[0].id)
+  // Last active project, kept visible under the new one while it fades in
+  const [prevId, setPrevId] = useState(null)
+  // Touch devices have no hover: a tap on the media toggles the description
+  const [infoOpen, setInfoOpen] = useState(false)
 
-  const activeProject = PROJECTS[activeIndex] ?? PROJECTS[0]
-  const activeText = copy.items[activeProject.id]
+  const select = (id) => {
+    if (id !== activeId) {
+      setPrevId(activeId)
+      setActiveId(id)
+    }
+    setInfoOpen(false)
+  }
 
   return (
     <section className={styles.section}>
+      <h2 className={styles.srOnly}>{sectionTitle}</h2>
 
-      <div className={styles.left}>
-        <div className={styles.titleAnchor}>
-          <h2 className={styles.title}>{sectionTitle}</h2>
-        </div>
+      {/* Left: media of the selected project */}
+      <div
+        className={`${styles.stage} ${infoOpen ? styles.stageOpen : ''}`}
+        onClick={() => setInfoOpen((open) => !open)}
+      >
+        {PROJECTS.map((project) => {
+          const { media } = project
+          const isActive = project.id === activeId
+          const isPrev = project.id === prevId
+          const text = copy.items[project.id]
 
-        <div className={styles.textAnchor}>
-          <div key={activeProject.id} className={styles.textInner}>
-            <p className={styles.description}>{activeText.description}</p>
-          </div>
-        </div>
+          return (
+            <div
+              key={project.id}
+              className={`${styles.slide} ${isActive ? styles.slideActive : ''} ${isPrev ? styles.slidePrev : ''}`}
+              aria-hidden={!isActive}
+            >
+              <div className={styles.media}>
+                {media?.type === 'video' ? (
+                  (isActive || isPrev) && (
+                    <video className={styles.mediaEl} src={media.src} autoPlay muted loop playsInline />
+                  )
+                ) : media?.type === 'image' ? (
+                  <img className={styles.mediaEl} src={media.src} alt="" />
+                ) : (
+                  <div className={styles.placeholder}>
+                    <ImageIcon size={32} strokeWidth={1.25} />
+                  </div>
+                )}
+              </div>
+
+              <div className={styles.info}>
+                <p className={styles.description}>{text.description}</p>
+              </div>
+            </div>
+          )
+        })}
       </div>
 
-      <div className={styles.right}>
-        <DepthCarousel
-          ref={carouselRef}
-          items={PROJECTS}
-          onChange={setActiveIndex}
-          renderItem={(project) => (
-            <ProjectCard
-              project={project}
-              text={copy.items[project.id]}
-              linkLabel={copy.linkLabel}
-            />
-          )}
-        />
+      {/* Right: scrollable project list */}
+      <ul className={styles.list}>
+        {PROJECTS.map((project) => {
+          const text = copy.items[project.id]
+          const isActive = project.id === activeId
 
-        <div className={styles.controls}>
-          <button
-            type="button"
-            className={styles.arrowButton}
-            onClick={() => carouselRef.current?.prev()}
-            aria-label={copy.prevLabel}
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <button
-            type="button"
-            className={styles.arrowButton}
-            onClick={() => carouselRef.current?.next()}
-            aria-label={copy.nextLabel}
-          >
-            <ChevronRight size={20} />
-          </button>
-        </div>
-      </div>
+          return (
+            <li
+              key={project.id}
+              className={`${styles.item} ${isActive ? styles.itemActive : ''}`}
+              onMouseEnter={() => select(project.id)}
+              onFocus={() => select(project.id)}
+              onClick={() => select(project.id)}
+            >
+              {project.link ? (
+                <a
+                  className={styles.itemTitle}
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {text.title}
+                </a>
+              ) : (
+                <span className={styles.itemTitle} tabIndex={0}>{text.title}</span>
+              )}
+              <span className={styles.itemMeta}>
+                {formatDate(project.date)} | {text.category}
+              </span>
+            </li>
+          )
+        })}
+      </ul>
     </section>
   )
 }

@@ -1,168 +1,186 @@
+/* two halves inside the frame: media on the left (touches the frame edge),
+   project list on the right. both stop at the header's bottom edge. */
 .section {
   position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  padding-top: var(--header-height);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: var(--color-text);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
-  min-height: 100%;
-  color: var(--color-text);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Left: media stage */
+.stage {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  cursor: pointer;
+  border-top-right-radius: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+/* Slides are stacked: the old one fades out while the new one fades in */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
   pointer-events: none;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: clamp(2rem, 6vw, 5rem);
+  transition: opacity 0.8s ease;
 }
 
-.section > * {
-  pointer-events: auto; /* re-enable events for the section's real
-                            content, since .section now disables them
-                            by default */
+.slideActive {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-
-/* Left Colmumn: fixed title + selected card text */
-
-.left {
-  position: relative;
-  flex: 0 0 clamp(260px, 32vw, 420px);
-  text-align: start;
+.media,
+.mediaEl,
+.placeholder {
+  width: 100%;
+  height: 100%;
 }
 
-.titleAnchor {
-  position: absolute;
-  top: 35%;
-  left: 0;
-  right: 0;
-  transform: translateY(-100%);
-  padding-bottom: 0.5rem;
+.media {
+  transform: scale(1.06);
+  transition: filter 0.4s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.title {
-  margin: 0;
-  font-size: clamp(2.25rem, 4vw, 3rem);
-  font-weight: 700;
-  font-family: var(--font-nav);
-  color: var(--color-text);
+.slideActive .media {
+  transform: scale(1);
 }
 
-.textAnchor {
-  position: absolute;
-  top: 35%;
-  left: 0;
-  right: 0;
-  padding-top: 0.5rem;
-}
-
-.textInner {
-  animation: fadeIn 0.3s ease;
-}
-
-.activeCategory {
+.mediaEl {
   display: block;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.4rem;
+  object-fit: cover;
 }
 
-.activeTitle {
-  margin: 0 0 0.75rem;
-  font-size: 1.3rem;
-  font-weight: 600;
-  font-family: var(--font-nav);
-  color: var(--color-text);
-}
-
-.description {
-  margin: 0;
-  max-width: 32ch;
-  color: var(--color-text-muted);
-  line-height: 1.55;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .textInner {
-    animation: none;
-  }
-}
-
-/* Right Column: Passing cards + arrows */
-
-/* Carousel max width (cardWidth + spread on both sides);
-   shrinks on smaller screens but won't stretch beyond this. */
-.right { 
-  position: relative;
-  flex: 0 1 620px;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-}
-
-.arrowButton {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-surface);
-  color: var(--color-text);
+.placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  color: var(--color-text-muted);
+  background: var(--color-surface-hover);
 }
 
-.arrowButton:hover:not(:disabled) {
-  background-color: var(--color-surface-hover);
-  border-color: var(--color-accent);
+/* Description appears on top of the blurred media */
+.info {
+  position: absolute;
+  inset: 0;
+  padding: 2rem clamp(1.25rem, 3vw, 3rem);
+  display: flex;
+  align-items: center;
+  overflow-y: auto;
+  scrollbar-width: none;
+  opacity: 0;
+  background: color-mix(in srgb, var(--color-bg) 45%, transparent);
+  transition: opacity 0.35s ease;
+  pointer-events: none;
 }
 
-.arrowButton:disabled {
-  opacity: 0.35;
-  cursor: default;
+.info::-webkit-scrollbar {
+  display: none;
 }
 
-/* Mobile: stack cards without fixed positioning; half-screen centering
-   no longer applies to the shorter stacked layout. */
+.description {
+  margin: auto 0;
+  max-width: 52ch;
+  line-height: 1.6;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: var(--color-text);
+}
+
+.stage:hover .slideActive .media,
+.stageOpen .slideActive .media {
+  filter: blur(14px);
+  transform: scale(1.05);
+}
+
+.stage:hover .slideActive .info,
+.stageOpen .slideActive .info {
+  opacity: 1;
+}
+
+/* Right: list (scrolls inside the area under the header, hidden scrollbar) */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0 clamp(1.5rem, 4vw, 4rem) 2rem clamp(1.5rem, 4vw, 4rem);
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 3vh, 2rem);
+  text-align: end;
+  align-items: flex-end;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  opacity: 0.4;
+  transition: opacity 0.25s ease;
+}
+
+.itemActive,
+.item:focus-within {
+  opacity: 1;
+}
+
+.itemTitle {
+  align-self: flex-end;
+  font-family: var(--font-nav);
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-text);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+
+.itemMeta {
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  color: var(--color-text-muted);
+}
+
+/* reduced motion: keep the soft fade (it is not movement), drop the zoom */
+@media (prefers-reduced-motion: reduce) {
+  .media,
+  .slideActive .media {
+    transform: none;
+    transition: filter 0.4s ease;
+  }
+
+  .slide {
+    transition-duration: 0.6s;
+  }
+}
+
+/* Mobile: media on top, list below */
 @media (max-width: 767px) {
   .section {
-    flex-direction: column;
-    padding: 3rem 1.5rem;
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 38% 1fr;
   }
 
-  .left {
-    flex: none;
-  }
-
-  .titleAnchor,
-  .textAnchor {
-    position: static;
-    transform: none;
-    padding: 0;
-  }
-
-  .textAnchor {
-    margin-top: 1rem;
-  }
-
-  .right {
-    flex: none;
-    justify-content: flex-start;
+  .list {
+    padding-top: 1.25rem;
   }
 }

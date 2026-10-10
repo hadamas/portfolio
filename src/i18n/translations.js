@@ -56,7 +56,7 @@ export const translations = {
         },
         'project-03': {
           category: '42 Rio | 42 École',
-          title: 'Common Core — 42 Rio',
+          title: 'Common Core',
           description: 'A set of projects written in C during the Common Core at 42 Rio, a peer-to-peer, teacher-free programming curriculum, from the start of the program through rank 3. Highlights include libft, a custom reimplementation of core libc functions; minitalk, inter-process communication using UNIX signals; and push_swap, a sorting algorithm built with two stacks and a minimal number of instructions — projects spanning C fundamentals and memory management to algorithmic logic and systems programming.',
         },
         'project-04': {
@@ -194,7 +194,7 @@ export const translations = {
         },
         'project-03': {
           category: '42 Rio | 42 École',
-          title: 'Common Core — 42 Rio',
+          title: 'Common Core',
           description: "Ensemble de projets écrits en C durant le Common Core de la 42 Rio, un cursus de programmation en peer-to-peer, sans professeurs, du début du programme jusqu'au rank 3. On y trouve notamment libft, une réimplémentation personnelle de fonctions de la libc ; minitalk, une communication inter-processus basée sur les signaux UNIX ; et push_swap, un algorithme de tri utilisant deux piles avec un nombre minimal d'instructions — des projets qui couvrent aussi bien les fondamentaux du C et la gestion de la mémoire que la logique algorithmique et la programmation système.",
         },
         'project-04': {
@@ -262,7 +262,7 @@ export const translations = {
         },
         'project-03': {
           category: '42 Rio | 42 École',
-          title: 'Common Core — 42 Rio',
+          title: 'Common Core',
           description: '42 Rio のCommon Core期間中にC言語で開発したプロジェクト群です。42は教師を置かず、ピア・ツー・ピア方式で学ぶプログラミングカリキュラムで、ここではカリキュラム開始からrank 3までの成果をまとめています。代表的なものに、libc関数を自作で再実装したlibft、UNIXシグナルを使ったプロセス間通信を扱うminitalk、2本のスタックと最小限の命令数でソートを行うpush_swapなどがあり、C言語の基礎やメモリ管理からアルゴリズムの論理、システムプログラミングまでを幅広くカバーしています。',
         },
         'project-04': {
