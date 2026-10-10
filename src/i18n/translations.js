@@ -6,9 +6,11 @@ export const translations = {
     footer: { copyright: 'All rights reserved' },
     contact: { emailLabel: 'EMAIL', socialLabel: 'SOCIAL MEDIA' },
     hero: {
-      title: "Hi! I'm Alanis",
-      subtitle: "I'm a Software developer and aspiring animator",
+      title: "[[Hi, I'm ]] Alanis Hadama\n[[but you can call me]] HADI",
+      subtitle: "I'm a software developer and aspiring animator",
       delete: 'Delete',
+      projectsLink: 'see my projects',
+      aboutLink: 'more about me',
     },
     about: {
       name: 'Alanis Hadama',
@@ -75,9 +77,11 @@ export const translations = {
     footer: { copyright: 'Todos os direitos reservados' },
     contact: { emailLabel: 'E-MAIL', socialLabel: 'REDES SOCIAIS' },
     hero: {
-      title: 'Oi! Me chamo Alanis',
-      subtitle: 'Sou desenvolvedora de Software e aspirante a animadora',
+      title: '[[OI, EU SOU]] ALANIS HADAMA\n[[MAS PODE ME CHAMAR DE]] HADI',
+      subtitle: 'Sou desenvolvedora de software e aspirante a animadora',
       delete: 'Apagar',
+      projectsLink: 'conheça meu trabalho',
+      aboutLink: 'mais sobre mim',
     },
     about: {
       name: 'Alanis Hadama',
@@ -144,9 +148,11 @@ export const translations = {
     footer: { copyright: 'Tous droits réservés' },
     contact: { emailLabel: 'E-MAIL', socialLabel: 'RÉSEAUX SOCIAUX' },
     hero: {
-      title: "Salut ! Je m'appelle Alanis",
+      title: "[[SALUT! JE M'APPELLE]] ALANIS HADAMA\n[[MAIS TU PEUX M'APPELER]] HADI",
       subtitle: 'Je suis développeuse de logiciels et animatrice 3D en devenir',
       delete: 'Supprimer',
+      projectsLink: 'découvrir mon travail',
+      aboutLink: 'en savoir plus sur moi',
     },
     about: {
       name: 'Alanis Hadama',
@@ -212,9 +218,11 @@ export const translations = {
     footer: { copyright: '全著作権所有' },
     contact: { emailLabel: 'メール', socialLabel: 'SNS' },
     hero: {
-      title: 'こんにちは!アラニスです',
+      title: '[[こんにちは,]] ALANIS HADAMA[[です。]]\nHADI[[って呼んでね]]',
       subtitle: 'ソフトウェアエンジニア、アニメーター志望',
       delete: '削除',
+      projectsLink: '作品を見る',
+      aboutLink: '私について',
     },
     about: {
       name: '波田間アラニス',

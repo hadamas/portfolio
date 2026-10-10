@@ -4,8 +4,8 @@
   gap: 0.6rem;
   color: var(--color-text);
   text-decoration: none;
-  font-family: var(--font-nav);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-family: var(--link-font, var(--font-nav));
+  font-size: var(--link-size, clamp(1.1rem, 2vw, 1.5rem));
   font-weight: 600;
   cursor: pointer;
 }
@@ -37,6 +37,17 @@
   background-position: 0% 100%;
 }
 
+.arrowPathRight {
+  transform-box: fill-box;
+  transform-origin: 100% 50%;
+}
+
+.link:hover .arrowPathRight,
+.link:focus-visible .arrowPathRight,
+.link:active .arrowPathRight {
+  animation: arrowNudgeRight 0.5s ease-in-out;
+}
+
 .link:hover .arrowPath,
 .link:focus-visible .arrowPath,
 .link:active .arrowPath {
@@ -56,5 +67,15 @@
   }
   50% {
     transform: translate(-4px, 4px) scale(0.85);
+  }
+}
+
+@keyframes arrowNudgeRight {
+  0%,
+  100% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(4px) scale(0.85);
   }
 }

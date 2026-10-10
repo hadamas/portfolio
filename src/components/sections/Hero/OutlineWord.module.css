@@ -1,0 +1,36 @@
+.word {
+  position: relative;
+  display: inline-block;
+}
+
+/* Invisible text: only reserves the space of the word */
+.sizer {
+  visibility: hidden;
+  font-family: var(--font-nav);
+  font-weight: 400;
+  font-synthesis: none;
+  /* the transparent text must not be selectable or announced twice */
+  user-select: none;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.text,
+.textGradient {
+  fill: transparent;
+  dominant-baseline: central;
+  font-family: var(--font-nav);
+  font-weight: 400;
+  font-synthesis: none;
+}
+
+.text {
+  stroke: var(--color-text);
+  stroke-opacity: 0.8;
+}

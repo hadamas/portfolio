@@ -15,7 +15,7 @@
   stroke-width: 0.8;
   text-anchor: middle;
   dominant-baseline: middle;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-nav);
   font-weight: 700;
   transition: opacity 0.3s ease;
 }
@@ -25,6 +25,6 @@
   fill: transparent;
   text-anchor: middle;
   dominant-baseline: middle;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-nav);
   font-weight: 700;
 }

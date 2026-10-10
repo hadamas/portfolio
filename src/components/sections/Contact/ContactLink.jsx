@@ -1,10 +1,11 @@
 import styles from './ContactLink.module.css'
 
-function ContactLink({ href, children, external = false }) {
+function ContactLink({ href, children, external = false, onClick, icon = 'diagonal' }) {
   return (
     <a
       className={styles.link}
       href={href ?? undefined}
+      onClick={onClick}
       {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
     >
       <svg
@@ -19,7 +20,11 @@ function ContactLink({ href, children, external = false }) {
         strokeLinejoin="round"
         aria-hidden="true"
       >
-        <path className={styles.arrowPath} d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+        {icon === 'right' ? (
+          <path className={styles.arrowPathRight} d="M4.5 12h15m0 0-6.75-6.75M19.5 12l-6.75 6.75" />
+        ) : (
+          <path className={styles.arrowPath} d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+        )}
       </svg>
       <span className={styles.text}>{children}</span>
     </a>

@@ -2,11 +2,16 @@ import { render, screen, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import Hero from './Hero'
+import { parseOutlineMarkup } from '../../../utils/outlineMarkup'
+import { translations } from '../../../i18n/translations'
 import { LanguageProvider } from '../../../context/LanguageProvider'
+import { NavigationProvider } from '../../../context/NavigationProvider'
 
 function renderWithProviders(ui) {
   return render(
-    <LanguageProvider>{ui}</LanguageProvider>
+    <LanguageProvider>
+      <NavigationProvider>{ui}</NavigationProvider>
+    </LanguageProvider>
   )
 }
 
@@ -26,9 +31,11 @@ describe('Hero', () => {
       vi.runAllTimers()
     })
 
-    expect(screen.getByText("Hi! I'm Alanis")).toBeInTheDocument()
+    const flat = (text) => text.replace(/\s+/g, ' ').trim()
+    const { plain } = parseOutlineMarkup(translations.en.hero.title)
+    expect(screen.getByRole('heading', { level: 1, name: (name) => flat(name) === flat(plain) })).toBeInTheDocument()
     expect(
-      screen.getByText("I'm a Software developer and aspiring animator")
+      screen.getByText(translations.en.hero.subtitle)
     ).toBeInTheDocument()
   })
 
@@ -38,5 +45,21 @@ describe('Hero', () => {
     renderWithProviders(<Hero />)
     await user.click(screen.getByText('Delete'))
     expect(screen.queryByText('Delete')).not.toBeInTheDocument()
+  })
+
+  it('mostra os links para Projects e About e navega ao clicar', () => {
+    renderWithProviders(<Hero />)
+    act(() => {
+      vi.runAllTimers()
+    })
+
+    const projects = screen.getByRole('link', { name: translations.en.hero.projectsLink })
+    expect(projects).toHaveAttribute('href', '#projects')
+    expect(screen.getByRole('link', { name: translations.en.hero.aboutLink })).toHaveAttribute('href', '#about')
+
+    act(() => {
+      projects.click()
+    })
+    expect(window.location.hash).toBe('#projects')
   })
 })

@@ -12,7 +12,7 @@
   --color-button-hover: rgba(112, 203, 255, 0.85);
   --color-link-hover: #ec7f58;
   --font-nav: 'DrukeWideBold', system-ui, sans-serif;
-  --font-text: 'ClashGrotesk', system-ui, sans-serif;;
+  --font-text: 'NoiGroteskThin', system-ui, sans-serif;;
   --transition-theme: background-color 0.2s ease, color 0.2s ease;
   --header-height: 88px;
   /* Page frame: thin border with the site inside, solid color outside */
@@ -79,6 +79,14 @@
 @font-face {
   font-family: 'DrukeWideBold';
   src: url('/fonts/DrukWideBold.woff2') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NoiGroteskThin';
+  src: url('/fonts/NoiGroteskTrial-Thin.otf)') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

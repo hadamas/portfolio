@@ -7,7 +7,7 @@ import { useSoundContext } from '../../../hooks/useSoundContext'
 import { useNavigationContext } from '../../../hooks/useNavigationContext'
 import styles from './Header.module.css'
 
-const LOGO_TEXT = 'Hadi.'
+const LOGO_TEXT = 'hadi.'
 
 function Header() {
   const { playMenuOpenSound, playMenuCloseSound } = useSoundContext()
