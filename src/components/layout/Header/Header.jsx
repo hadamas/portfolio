@@ -2,20 +2,16 @@ import SoundToggle from './components/SoundToggle'
 import LanguageSelector from './components/LanguageSelector'
 import ThemeToggle from './components/ThemeToggle'
 import MenuButton from './components/MenuButton'
+import TextHoverEffect from './components/TextHoverEffect'
 import { useSoundContext } from '../../../hooks/useSoundContext'
-import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { useNavigationContext } from '../../../hooks/useNavigationContext'
-import { translations } from '../../../i18n/translations'
 import styles from './Header.module.css'
 
+const LOGO_TEXT = 'Hadi.'
+
 function Header() {
-  const { language } = useLanguageContext()
   const { playMenuOpenSound, playMenuCloseSound } = useSoundContext()
   const { goToSection, isMenuOpen, toggleMenu } = useNavigationContext()
-
-  const { name } = translations[language.code].about
-  const [firstName, ...rest] = name.split(' ')
-  const lastName = rest.join(' ')
 
   function handleMenuToggle() {
     if (isMenuOpen) {
@@ -32,10 +28,9 @@ function Header() {
         type="button"
         className={styles.logo}
         onClick={() => goToSection('home')}
-        aria-label={name}
+        aria-label={LOGO_TEXT}
       >
-        <span aria-hidden="true">{firstName}</span>
-        {lastName && <span aria-hidden="true">{lastName}</span>}
+        <TextHoverEffect text={LOGO_TEXT} />
       </button>
 
       <div className={styles.controls}>

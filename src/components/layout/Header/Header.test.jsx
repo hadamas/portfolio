@@ -20,9 +20,9 @@ function renderWithProviders(ui) {
 }
 
 describe('Header', () => {
-  it("renders 'Name' as a logo", () => {
+  it("renders the nickname as a logo", () => {
     renderWithProviders(<Header />)
-    expect(screen.getByRole('button', { name: 'Alanis Hadama' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Hadi.' })).toBeInTheDocument()
   })
 
   it('renders control icons', () => {

@@ -1,0 +1,30 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  user-select: none;
+}
+
+/* Outline only: no fill */
+.text {
+  fill: transparent;
+  /* Same look as the reference: thin, dim outline */
+  stroke: var(--color-text);
+  stroke-opacity: 0.55;
+  stroke-width: 0.8;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  transition: opacity 0.3s ease;
+}
+
+/* Gradient layer: only the stroke paint differs (set inline) */
+.textGradient {
+  fill: transparent;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}

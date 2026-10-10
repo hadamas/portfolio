@@ -14,17 +14,13 @@
 }
 
 .logo {
-  display: flex;
-  flex-direction: column;
+  display: block;
+  width: clamp(110px, 11vw, 150px);
+  aspect-ratio: 200 / 80;
   padding: 0;
   background: none;
   border: none;
   cursor: pointer;
-  text-align: left;
-  text-transform: uppercase;
-  font-family: var(--font-nav);
-  font-size: clamp(1rem, 1.7vw, 1.6rem);
-  line-height: 0.95;
   color: inherit;
 }
 
