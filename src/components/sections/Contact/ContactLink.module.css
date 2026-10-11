@@ -6,7 +6,7 @@
   text-decoration: none;
   font-family: var(--link-font, var(--font-nav));
   font-size: var(--link-size, clamp(1.1rem, 2vw, 1.5rem));
-  font-weight: 600;
+  font-weight: var(--link-weight, 600);
   cursor: pointer;
 }
 
@@ -40,6 +40,17 @@
 .arrowPathRight {
   transform-box: fill-box;
   transform-origin: 100% 50%;
+}
+
+.arrowPathDown {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.link:hover .arrowPathDown,
+.link:focus-visible .arrowPathDown,
+.link:active .arrowPathDown {
+  animation: arrowNudgeDown 0.5s ease-in-out;
 }
 
 .link:hover .arrowPathRight,
@@ -77,5 +88,15 @@
   }
   50% {
     transform: translateX(4px) scale(0.85);
+  }
+}
+
+@keyframes arrowNudgeDown {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(4px) scale(0.85);
   }
 }

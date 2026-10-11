@@ -1,6 +1,8 @@
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { translations } from '../../../i18n/translations'
 import profilePic from '../../../assets/images/profile-pic.jpeg'
+import ContactLink from '../Contact/ContactLink'
+import LanguageFlags from './LanguageFlags'
 import StackFlowingMenu from './StackFlowingMenu/StackFlowingMenu'
 import { RESUME_FILES } from '../../../data/resumeFiles'
 import styles from './About.module.css'
@@ -60,88 +62,49 @@ const STACK_CATEGORIES = [
 function About() {
   const { language } = useLanguageContext()
   const about = translations[language.code].about
-  const [firstName, ...rest] = about.name.split(' ')
-  const lastName = rest.join(' ')
 
   return (
     <section className={styles.section}>
-      {/* my name + profession + photo + presentation text */}
+      {/* photo + presentation text + cv button + lang*/}
       <article className={styles.card}>
-        <p className={styles.profession}>{about.profession}</p>
-
         <div className={styles.cardBody}>
-          <div className={styles.photoWrap}>
-            <img src={profilePic} alt="Alanis Hadama profile picture" className={styles.photo} />
+          <div className={styles.photoCol}>
+            <div className={styles.photoWrap}>
+              <img src={profilePic} alt="alanis profile pic" className={styles.photo} />
+            </div>
+            <LanguageFlags label={about.languages} languages={about.languagesSpoken} />
           </div>
 
           <div className={styles.info}>
-            <h1 className={styles.name}>
-              <span className={styles.firstName}>{firstName}</span>
-              {lastName && <span className={styles.lastName}> {lastName}</span>}
-            </h1>
-
             <div className={styles.introRow}>
               <p className={styles.intro}>{about.intro}</p>
-              <a
-                className={styles.cta}
-                href={RESUME_FILES[language.code]}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={about.linkCVLabel}
-              >
-                <span className={styles.ctaArrow} aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                  </svg>
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                  </svg>
-                </span>
-              </a>
+              <div className={styles.resume}>
+                <ContactLink href={RESUME_FILES[language.code]} external icon="down">
+                  {about.linkCVLabel}
+                </ContactLink>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      {/* professional information */}
-      <div className={`${styles.row} ${styles.gridRow}`}>
-        <div className={styles.column}>
-          <h2 className={styles.columnTitle}>{about.languages}</h2>
-          <ul className={styles.list}>
-            {about.languagesSpoken.map((lang) => (
-              <li key={lang.name}>
-                {lang.name} — {lang.level}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className={styles.column}>
-          <h2 className={styles.columnTitle}>{about.education}</h2>
-          <ul className={styles.list}>
-            {about.educationItems.map((item, index) => (
-              <li key={index}>
-                <span className={styles.itemPeriod}>{item.period}</span>
-                <strong>{item.title}</strong>
-                <span>{item.subtitle}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className={styles.column}>
-          <h2 className={styles.columnTitle}>{about.experience}</h2>
-          <ul className={styles.list}>
-            {about.experienceItems.map((item, index) => (
-              <li key={index}>
-                <span className={styles.itemPeriod}>{item.period}</span>
-                <strong>{item.title}</strong>
-                <span>{item.subtitle}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      {/* education + experience */}
+      <ul className={styles.timeline}>
+        {[
+          ...about.educationItems.map((item) => ({ ...item, type: about.education })),
+          ...about.experienceItems.map((item) => ({ ...item, type: about.experience })),
+        ].map((item, index) => (
+          <li key={index} className={styles.cell}>
+            <span className={styles.cellType}>{item.type}</span>
+            <div className={styles.cellMain}>
+              <p className={styles.cellSubtitle}>{item.subtitle}</p>
+              <p className={styles.cellMeta}>
+                {item.title} / {item.period}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
 
       {/* stack flowing rows */}
       <div className={`${styles.row} ${styles.stackSection}`}>

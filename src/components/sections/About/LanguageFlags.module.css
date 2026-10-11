@@ -1,0 +1,81 @@
+.list {
+  --w: 40px;
+  --h: 20px;
+  --shadow: 0 8px 14px rgba(0, 0, 0, 0.14);
+  display: flex;
+  justify-content: flex-start;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  flex: 0 0 auto;
+}
+
+.btn {
+  display: grid;
+  grid-template-columns: var(--w) 0fr;
+  height: var(--h);
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--flag-bg);
+  opacity: 0.5;
+  color: #fff;
+  box-shadow: var(--shadow);
+  cursor: default;
+  transition:
+    grid-template-columns 0.3s ease,
+    border-radius 0.3s ease;
+}
+
+.flag {
+  flex: 0 0 var(--w);
+  width: var(--w);
+  height: var(--h);
+}
+
+.flag svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.labelText {
+  padding: 0 0.75rem 0 0.6rem;
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  grid-template-columns: var(--w) 1fr;
+  border-radius: 4px;
+}
+
+.btn:hover .label,
+.btn:focus-visible .label {
+  opacity: 1;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* dark mode: deeper shadow plus a faint edge so the flags stay defined */
+:global([data-theme='dark']) .list {
+  --shadow: 0 8px 14px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}

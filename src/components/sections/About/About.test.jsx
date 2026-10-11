@@ -9,16 +9,9 @@ function renderWithProvider(ui) {
 }
 
 describe('About', () => {
-  it('renderiza nome e profissão', () => {
-    renderWithProvider(<About />)
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Alanis Hadama')
-    expect(screen.getByText('Software Developer')).toBeInTheDocument()
-  })
-
   it('mostra o label traduzido da categoria de linguagens no Stack', () => {
     renderWithProvider(<About />)
-    // em inglês "Languages" aparece 2x (coluna de idiomas + categoria do stack)
-    expect(screen.getAllByText('Languages').length).toBeGreaterThanOrEqual(2)
+    expect(screen.getAllByText('Languages').length).toBeGreaterThanOrEqual(1)
   })
 
   it('renderiza as 4 categorias da stack como linhas do menu', () => {
@@ -43,5 +36,12 @@ describe('About', () => {
     renderWithProvider(<About />)
     expect(screen.getAllByAltText('React').length).toBeGreaterThan(0)
     expect(screen.getAllByTitle('REST APIs').length).toBeGreaterThan(0)
+  })
+
+  it('mostra as 4 bandeiras de idiomas e os 4 itens de educação/experiência', () => {
+    renderWithProvider(<About />)
+    expect(screen.getByRole('list', { name: 'Languages' }).children).toHaveLength(4)
+    expect(screen.getAllByText('Education')).toHaveLength(2)
+    expect(screen.getAllByText('Experience')).toHaveLength(2)
   })
 })

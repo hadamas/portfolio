@@ -15,8 +15,8 @@ export const translations = {
     about: {
       name: 'Alanis Hadama',
       profession: 'Software Developer',
-      intro: 'I create at the intersection of code and art, where people feel before they understand.',
-      linkCVLabel: 'Open resume',
+      intro: "Born in 2001 in Rio de Janeiro, Brazil. I believe code can be more than functional. It can be expressive, immersive, and alive.\n\nAt the intersection of technology and art, I create digital experiences where people feel before they understand, exploring the space between logic, interaction and imagination.",
+      linkCVLabel: 'resume',
       animationPlaceholder: '3D animation coming soon',
       languages: 'Languages',
       education: 'Education',
@@ -37,7 +37,7 @@ export const translations = {
         { period: '2025', title: '42 Rio | 42 Network', subtitle: 'Software Engineering' },
       ],
       experienceItems: [
-        { period: 'sep 2024 - sep 2026', title: "Petros: Petrobra's Pension Fund", subtitle: 'Full Stack Software Developer Intern' },
+        { period: '\nsep 2024 - sep 2026', title: "Petros: Petrobra's Pension Fund", subtitle: 'Full Stack Software Developer Intern' },
         { period: 'since 2023', title: 'Gatos de Francisca', subtitle: 'Volunteer work at a cat shelter' },
       ],
     },
@@ -52,16 +52,26 @@ export const translations = {
           description: 'A website still in development for a cat shelter, featuring an integrated online store for fundraising, a database for adoption management, and cards displaying the cats currently available for adoption, along with information about the project and its cause.',
         },
         'project-02': {
+          category: 'Web Development | Full Stack',
+          title: 'Gatos de Francisca',
+          description: 'A website still in development for a cat shelter, featuring an integrated online store for fundraising, a database for adoption management, and cards displaying the cats currently available for adoption, along with information about the project and its cause.',
+        },
+        'project-03': {
+          category: 'Web Development | Full Stack',
+          title: 'Gatos de Francisca',
+          description: 'A website still in development for a cat shelter, featuring an integrated online store for fundraising, a database for adoption management, and cards displaying the cats currently available for adoption, along with information about the project and its cause.',
+        },
+        'project-04': {
           category: '3D Modeling & Animation | Web Development',
           title: '3D Lab',
           description: 'A collection of 3D modeling and animation projects built with Blender, Three.js, React Three Fiber, and Drei. The models are also freely available for use on Sketchfab.',
         },
-        'project-03': {
+        'project-05': {
           category: '42 Rio | 42 École',
           title: 'Common Core',
           description: 'A set of projects written in C during the Common Core at 42 Rio, a peer-to-peer, teacher-free programming curriculum, from the start of the program through rank 3. Highlights include libft, a custom reimplementation of core libc functions; minitalk, inter-process communication using UNIX signals; and push_swap, a sorting algorithm built with two stacks and a minimal number of instructions — projects spanning C fundamentals and memory management to algorithmic logic and systems programming.',
         },
-        'project-04': {
+        'project-06': {
           category: '2D Game | 42 Rio',
           title: 'So_Long',
           description: 'A small 2D top-down game written in C with MiniLibX, built as part of the 42 Rio Common Core. So_Long is the first graphical project of the curriculum: the goal is to build a tiny tile-based game from scratch — opening a window, loading sprites, reading a map from a file, handling keyboard input, and managing memory cleanly, all in plain C. In this version, you pilot a spaceship through a maze, collecting every coin on the map and reaching the exit in as few moves as possible.',
@@ -86,8 +96,8 @@ export const translations = {
     about: {
       name: 'Alanis Hadama',
       profession: 'Desenvolvedora de Software',
-      intro: 'Crio na fronteira entre código e arte, onde as pessoas sentem antes de entender.',
-      linkCVLabel: 'Ver currículo',
+      intro: 'Nascida em 2001, no Rio de Janeiro, Brasil. Acredito que o código pode ser mais do que funcional. Ele pode ser expressivo, imersivo e vivo.\n\nNa interseção entre tecnologia e arte, crio experiências digitais que fazem sentir antes de compreender, explorando o espaço entre lógica, interação e imaginação.',
+      linkCVLabel: 'currículo',
       animationPlaceholder: 'Animação 3D em breve',
       languages: 'Idiomas',
       education: 'Educação',
@@ -123,16 +133,26 @@ export const translations = {
           description: 'Website ainda em desenvolvimento para um gatil, com loja virtual integrada para arrecadação de fundos, banco de dados para gestão das adoções e cards exibindo os gatos disponíveis, além de informações sobre o projeto e a causa.',
         },
         'project-02': {
+          category: 'Desenvolvimento Web | Full Stack',
+          title: 'Gatos de Francisca',
+          description: 'Website ainda em desenvolvimento para um gatil, com loja virtual integrada para arrecadação de fundos, banco de dados para gestão das adoções e cards exibindo os gatos disponíveis, além de informações sobre o projeto e a causa.',
+        },
+        'project-03': {
+          category: 'Desenvolvimento Web | Full Stack',
+          title: 'Gatos de Francisca',
+          description: 'Website ainda em desenvolvimento para um gatil, com loja virtual integrada para arrecadação de fundos, banco de dados para gestão das adoções e cards exibindo os gatos disponíveis, além de informações sobre o projeto e a causa.',
+        },
+        'project-04': {
           category: 'Modelagem & Animação 3D | Desenvolvimento Web',
           title: 'Coleção de Objetos 3D',
           description: 'Coleção de projetos de modelagem e animação 3D, desenvolvidos com Blender, Three.js, React Three Fiber e Drei. Os modelos também são disponibilizados gratuitamente para uso no Sketchfab.',
         },
-        'project-03': {
+        'project-05': {
           category: '42 Rio | 42 École',
           title: 'Common Core',
           description: 'Conjunto de projetos desenvolvidos em C durante o Common Core da 42 Rio, curso de programação com metodologia peer-to-peer e sem professores, do início até o rank 3. Entre eles estão a libft, biblioteca própria com reimplementações de funções da libc; minitalk, comunicação entre processos via sinais UNIX; e push_swap, algoritmo de ordenação com duas pilhas e número mínimo de instruções — projetos que cobrem desde fundamentos de C e gerenciamento de memória até lógica de algoritmos e programação de sistemas.',
         },
-        'project-04': {
+        'project-06': {
           category: 'Jogo 2D | 42 Rio',
           title: 'So_Long',
           description: 'Pequeno jogo 2D em visão top-down, escrito em C com a MiniLibX, desenvolvido como parte do Common Core da 42 Rio. So_Long é o primeiro projeto gráfico do curso: o objetivo é construir, do zero, um jogo baseado em tiles — abrindo uma janela, carregando sprites, lendo um mapa a partir de um arquivo, tratando entradas do teclado e gerenciando memória corretamente, tudo em C puro. Nesta versão, você pilota uma nave espacial por um labirinto, coletando todas as moedas do mapa e alcançando a saída usando o menor número de movimentos possível.',
@@ -157,7 +177,7 @@ export const translations = {
     about: {
       name: 'Alanis Hadama',
       profession: 'Développeuse Logicielle',
-      intro: "Je crée à la croisée du code et de l'art, là où l'on ressent avant de comprendre.",
+      intro: "Née en 2001 à Rio de Janeiro, au Brésil. Je crois que le code peut être plus que fonctionnel. Il peut être expressif, immersif et vivant.\n\nÀ la croisée de la technologie et de l'art, je crée des expériences numériques qui font ressentir avant de faire comprendre, en explorant l'espace entre logique, interaction et imagination",
       linkCVLabel: 'Ouvrir le CV',
       animationPlaceholder: 'Animation 3D à venir',
       languages: 'Langues',
@@ -194,16 +214,26 @@ export const translations = {
           description: "Site web encore en développement pour un refuge de chats, avec une boutique en ligne intégrée pour la collecte de fonds, une base de données pour la gestion des adoptions et des fiches présentant les chats actuellement disponibles à l'adoption, ainsi que des informations sur le projet et sa cause.",
         },
         'project-02': {
+          category: 'Développement Web | Full Stack',
+          title: 'Gatos de Francisca',
+          description: "Site web encore en développement pour un refuge de chats, avec une boutique en ligne intégrée pour la collecte de fonds, une base de données pour la gestion des adoptions et des fiches présentant les chats actuellement disponibles à l'adoption, ainsi que des informations sur le projet et sa cause.",
+        },
+        'project-03': {
+          category: 'Développement Web | Full Stack',
+          title: 'Gatos de Francisca',
+          description: "Site web encore en développement pour un refuge de chats, avec une boutique en ligne intégrée pour la collecte de fonds, une base de données pour la gestion des adoptions et des fiches présentant les chats actuellement disponibles à l'adoption, ainsi que des informations sur le projet et sa cause.",
+        },
+        'project-04': {
           category: 'Modélisation & Animation 3D | Développement Web',
           title: 'Labo 3D',
           description: "Collection de projets de modélisation et d'animation 3D réalisés avec Blender, Three.js, React Three Fiber et Drei. Les modèles sont également disponibles gratuitement sur Sketchfab.",
         },
-        'project-03': {
+        'project-05': {
           category: '42 Rio | 42 École',
           title: 'Common Core',
           description: "Ensemble de projets écrits en C durant le Common Core de la 42 Rio, un cursus de programmation en peer-to-peer, sans professeurs, du début du programme jusqu'au rank 3. On y trouve notamment libft, une réimplémentation personnelle de fonctions de la libc ; minitalk, une communication inter-processus basée sur les signaux UNIX ; et push_swap, un algorithme de tri utilisant deux piles avec un nombre minimal d'instructions — des projets qui couvrent aussi bien les fondamentaux du C et la gestion de la mémoire que la logique algorithmique et la programmation système.",
         },
-        'project-04': {
+        'project-06': {
           category: 'Jeu 2D | 42 Rio',
           title: 'So_Long',
           description: "Petit jeu 2D en vue de dessus, écrit en C avec MiniLibX, réalisé dans le cadre du Common Core de la 42 Rio. So_Long est le premier projet graphique du cursus : l'objectif est de construire, à partir de zéro, un jeu basé sur des tuiles — ouvrir une fenêtre, charger des sprites, lire une carte depuis un fichier, gérer les entrées clavier et la mémoire proprement, le tout en C pur. Dans cette version, vous pilotez un vaisseau spatial à travers un labyrinthe, en récoltant toutes les pièces de la carte avant d'atteindre la sortie en un minimum de déplacements.",
@@ -227,8 +257,8 @@ export const translations = {
     about: {
       name: '波田間アラニス',
       profession: 'ソフトウェア開発者',
-      intro: 'コードとアートが交わる場所で、理解するよりも先に心が動くものをつくっています。',
-      linkCVLabel: '履歴書を開く',
+      intro: '2001年、ブラジルのリオデジャネイロ生まれ。コードは単に機能するだけのものではないと考えています。表現豊かで、没入感があり、生き生きとしたものにもなれる。\n\nテクノロジーとアートの交差点で、理解するより先に何かを感じられるデジタル体験を創り、論理、インタラクション、想像力のあいだに広がる可能性を探求しています。',
+      linkCVLabel: '履歴書',
       animationPlaceholder: '3Dアニメーション近日公開',
       languages: '言語',
       education: '学歴',
@@ -264,16 +294,26 @@ export const translations = {
           description: '保護猫シェルターのための開発中のウェブサイト。寄付金を集めるためのオンラインショップ機能、里親管理のためのデータベース、現在里親を募集している猫たちをカード形式で紹介する機能に加え、プロジェクトや活動についての情報も掲載しています。',
         },
         'project-02': {
+          category: 'ウェブ開発 | フルスタック',
+          title: 'Gatos de Francisca',
+          description: '保護猫シェルターのための開発中のウェブサイト。寄付金を集めるためのオンラインショップ機能、里親管理のためのデータベース、現在里親を募集している猫たちをカード形式で紹介する機能に加え、プロジェクトや活動についての情報も掲載しています。',
+        },
+        'project-03': {
+          category: 'ウェブ開発 | フルスタック',
+          title: 'Gatos de Francisca',
+          description: '保護猫シェルターのための開発中のウェブサイト。寄付金を集めるためのオンラインショップ機能、里親管理のためのデータベース、現在里親を募集している猫たちをカード形式で紹介する機能に加え、プロジェクトや活動についての情報も掲載しています。',
+        },
+        'project-04': {
           category: '3Dモデリング・アニメーション | ウェブ開発',
           title: '3Dラボ',
           description: 'Blender、Three.js、React Three Fiber、Dreiを使用して制作した3Dモデリング・アニメーション作品集です。制作したモデルはSketchfabでも無料で公開しています。',
         },
-        'project-03': {
+        'project-05': {
           category: '42 Rio | 42 École',
           title: 'Common Core',
           description: '42 Rio のCommon Core期間中にC言語で開発したプロジェクト群です。42は教師を置かず、ピア・ツー・ピア方式で学ぶプログラミングカリキュラムで、ここではカリキュラム開始からrank 3までの成果をまとめています。代表的なものに、libc関数を自作で再実装したlibft、UNIXシグナルを使ったプロセス間通信を扱うminitalk、2本のスタックと最小限の命令数でソートを行うpush_swapなどがあり、C言語の基礎やメモリ管理からアルゴリズムの論理、システムプログラミングまでを幅広くカバーしています。',
         },
-        'project-04': {
+        'project-06': {
           category: '2Dゲーム | 42 Rio',
           title: 'So_Long',
           description: '42 Rio のCommon Coreの一環として、C言語とMiniLibXで制作した小さな2Dトップダウンゲームです。So_Longはカリキュラム最初のグラフィカルなプロジェクトで、ウィンドウを開く、スプライトを読み込む、ファイルからマップを読み込む、キー入力を処理する、メモリを適切に管理するといった工程を、純粋なC言語だけでゼロから作り上げることが目標です。このバージョンでは宇宙船を操作して迷路を進み、マップ上のコインをすべて集めてから、できるだけ少ない移動回数でゴールを目指します。',
