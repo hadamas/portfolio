@@ -13,6 +13,7 @@
 /* text */
 .textBlock {
   position: relative;
+  z-index: 1;
   display: inline-block;
   text-align: center;
   padding: 3rem 1.5rem;

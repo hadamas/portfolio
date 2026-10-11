@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { useNavigationContext } from '../../../hooks/useNavigationContext'
 import { translations } from '../../../i18n/translations'
 import { parseOutlineMarkup } from '../../../utils/outlineMarkup'
 import ContactLink from '../Contact/ContactLink'
+import GhostLayer from './GhostLayer'
+import { GhostContext } from './GhostContext'
 import OutlineWord from './OutlineWord'
 import styles from './Hero.module.css'
 
@@ -37,6 +39,21 @@ function Hero() {
   const [isMounted, setIsMounted] = useState(false)
   const hero = translations[language.code].hero
 
+  // Ghost: the layer moves it and reports its position to the outline words
+  const ghostControllerRef = useRef(null)
+  const [subscribers] = useState(() => new Set())
+  const ghostContext = useMemo(
+    () => ({
+      subscribe: (fn) => {
+        subscribers.add(fn)
+        return () => subscribers.delete(fn)
+      },
+      // An outline word was hovered: send the ghost across its line
+      trigger: (element) => ghostControllerRef.current?.play(element),
+    }),
+    [subscribers],
+  )
+
   useEffect(() => {
     // A timer (not requestAnimationFrame) so it also runs in background tabs
     const timer = setTimeout(() => setIsMounted(true), 50)
@@ -55,6 +72,8 @@ function Hero() {
 
   return (
     <section className={styles.hero} data-active={isActive}>
+      <GhostLayer controllerRef={ghostControllerRef} running={isActive} subscribers={subscribers} />
+      <GhostContext.Provider value={ghostContext}>
       <div className={styles.textBlock}>
         <button
           type="button"
@@ -106,6 +125,7 @@ function Hero() {
           </Reveal>
         </nav>
       </div>
+      </GhostContext.Provider>
     </section>
   )
 }

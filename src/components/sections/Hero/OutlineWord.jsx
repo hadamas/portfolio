@@ -1,18 +1,24 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
+import { GhostContext } from './GhostContext'
+import { GHOST_PATH } from './GhostLayer'
 import styles from './OutlineWord.module.css'
 
 // Outline-only word with a rainbow gradient revealed under the cursor.
-// Same look and effect as the header logo (TextHoverEffect), but sized by the
 // surrounding text: a hidden span gives the layout size and an SVG is drawn on top.
 function OutlineWord({ text }) {
   const uid = useId().replace(/:/g, '')
+  const wordRef = useRef(null)
   const sizerRef = useRef(null)
+  const svgRef = useRef(null)
+  const ghostMaskRef = useRef(null)
+  const ghost = useContext(GhostContext)
   const maskGradientRef = useRef(null)
   const [box, setBox] = useState({ w: 0, h: 0, fontSize: 16 })
   const [hovered, setHovered] = useState(false)
 
-  // Read the real size of the text (it changes with the responsive font-size)
+  // Read the real size of the text (it changes with the responsive font-size
+  // and when the web font finishes loading).
   useLayoutEffect(() => {
     const el = sizerRef.current
     const measure = () =>
@@ -22,10 +28,44 @@ function OutlineWord({ text }) {
         fontSize: parseFloat(getComputedStyle(el).fontSize),
       })
     measure()
+
+    // Observe the wrapper: ResizeObserver never reports size changes of a
+    // plain inline element (like the sizer span), so observing it would miss
+    // the font swap and leave a stale size (the word then overlaps its neighbours).
     const observer = new ResizeObserver(measure)
-    observer.observe(el)
-    return () => observer.disconnect()
+    observer.observe(wordRef.current)
+
+    // Safety net: measure again once the fonts are ready
+    let cancelled = false
+    document.fonts?.ready.then(() => {
+      if (!cancelled) measure()
+    })
+
+    return () => {
+      cancelled = true
+      observer.disconnect()
+    }
   }, [text])
+
+  // Follow the ghost: its silhouette (in this word's coordinates) is the mask
+  // of the "contrast" layer, so the letters flip colour only where it passes.
+  useEffect(() => {
+    if (!ghost) return undefined
+    return ghost.subscribe((rect) => {
+      const group = ghostMaskRef.current
+      const svg = svgRef.current
+      if (!group || !svg) return
+      if (!rect) {
+        group.setAttribute('transform', 'translate(-9999 -9999)')
+        return
+      }
+      const word = svg.getBoundingClientRect()
+      group.setAttribute(
+        'transform',
+        `translate(${rect.left - word.left} ${rect.top - word.top}) scale(${rect.width / 100})`,
+      )
+    })
+  }, [ghost, box.w])
 
   useEffect(() => () => gsap.killTweensOf(maskGradientRef.current), [])
 
@@ -41,15 +81,19 @@ function OutlineWord({ text }) {
   const { w, h, fontSize } = box
 
   return (
-    <span className={styles.word}>
+    <span ref={wordRef} className={styles.word}>
       <span ref={sizerRef} className={styles.sizer}>{text}</span>
 
       {w > 0 && (
         <svg
+          ref={svgRef}
           className={styles.svg}
           viewBox={`0 0 ${w} ${h}`}
           aria-hidden="true"
-          onMouseEnter={() => setHovered(true)}
+          onMouseEnter={() => {
+            setHovered(true)
+            ghost?.trigger(svgRef.current)
+          }}
           onMouseLeave={() => setHovered(false)}
           onMouseMove={moveMask}
         >
@@ -76,12 +120,27 @@ function OutlineWord({ text }) {
               <stop offset="0%" stopColor="white" />
               <stop offset="100%" stopColor="black" />
             </radialGradient>
+            <mask id={`${uid}-ghost`} maskUnits="userSpaceOnUse" x="0" y="0" width={w} height={h}>
+              <g ref={ghostMaskRef} transform="translate(-9999 -9999)">
+                <path d={GHOST_PATH} fill="white" fillRule="evenodd" />
+              </g>
+            </mask>
             <mask id={`${uid}-mask`}>
               <rect x="0" y="0" width={w} height={h} fill={`url(#${uid}-reveal)`} />
             </mask>
           </defs>
 
           <text className={styles.text} x="0" y={h / 2} style={{ fontSize, strokeWidth: fontSize / 40 }}>
+            {text}
+          </text>
+          {/* Contrast layer: filled letters, visible only under the ghost */}
+          <text
+            className={styles.textContrast}
+            x="0"
+            y={h / 2}
+            mask={`url(#${uid}-ghost)`}
+            style={{ fontSize, strokeWidth: fontSize / 40 }}
+          >
             {text}
           </text>
           <text
