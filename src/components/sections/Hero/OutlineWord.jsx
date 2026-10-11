@@ -7,12 +7,14 @@ import styles from './OutlineWord.module.css'
 // surrounding text: a hidden span gives the layout size and an SVG is drawn on top.
 function OutlineWord({ text }) {
   const uid = useId().replace(/:/g, '')
+  const wordRef = useRef(null)
   const sizerRef = useRef(null)
   const maskGradientRef = useRef(null)
   const [box, setBox] = useState({ w: 0, h: 0, fontSize: 16 })
   const [hovered, setHovered] = useState(false)
 
-  // Read the real size of the text (it changes with the responsive font-size)
+  // Read the real size of the text (it changes with the responsive font-size
+  // and when the web font finishes loading).
   useLayoutEffect(() => {
     const el = sizerRef.current
     const measure = () =>
@@ -22,9 +24,23 @@ function OutlineWord({ text }) {
         fontSize: parseFloat(getComputedStyle(el).fontSize),
       })
     measure()
+
+    // Observe the wrapper: ResizeObserver never reports size changes of a
+    // plain inline element (like the sizer span), so observing it would miss
+    // the font swap and leave a stale size (the word then overlaps its neighbours).
     const observer = new ResizeObserver(measure)
-    observer.observe(el)
-    return () => observer.disconnect()
+    observer.observe(wordRef.current)
+
+    // Safety net: measure again once the fonts are ready
+    let cancelled = false
+    document.fonts?.ready.then(() => {
+      if (!cancelled) measure()
+    })
+
+    return () => {
+      cancelled = true
+      observer.disconnect()
+    }
   }, [text])
 
   useEffect(() => () => gsap.killTweensOf(maskGradientRef.current), [])
@@ -41,7 +57,7 @@ function OutlineWord({ text }) {
   const { w, h, fontSize } = box
 
   return (
-    <span className={styles.word}>
+    <span ref={wordRef} className={styles.word}>
       <span ref={sizerRef} className={styles.sizer}>{text}</span>
 
       {w > 0 && (
