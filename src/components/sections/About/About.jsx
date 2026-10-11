@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
+import { useNavigationContext } from '../../../hooks/useNavigationContext'
 import { translations } from '../../../i18n/translations'
 import profilePic from '../../../assets/images/profile-pic.GIF'
 import profilePicStatic from '../../../assets/images/profile-pic-static.JPG'
@@ -63,7 +64,9 @@ const STACK_CATEGORIES = [
 
 function About() {
   const { language } = useLanguageContext()
+  const { activeSection, isMenuOpen } = useNavigationContext()
   const about = translations[language.code].about
+  const isActive = !isMenuOpen && activeSection === 'about'
   const [isPlaying, setIsPlaying] = useState(false)
 
   // warm the cache so the GIF starts right away on the first hover
@@ -77,11 +80,11 @@ function About() {
   const stopPlaying = () => setIsPlaying(false)
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} data-active={isActive}>
       {/* photo + presentation text + cv button + lang*/}
       <article className={styles.card}>
         <div className={styles.cardBody}>
-          <div className={styles.photoCol}>
+          <div className={`${styles.photoCol} ${styles.fromLeft}`}>
             <div className={styles.photoWrap} onMouseEnter={startPlaying} onMouseLeave={stopPlaying}>
               <img src={profilePicStatic} alt="alanis profile pic" className={styles.photo} />
               {isPlaying && <img src={profilePic} alt="" aria-hidden="true" className={styles.photoGif} />}
@@ -89,7 +92,7 @@ function About() {
             <LanguageFlags label={about.languages} languages={about.languagesSpoken} />
           </div>
 
-          <div className={styles.info}>
+          <div className={`${styles.info} ${styles.fromRight}`}>
             <div className={styles.introRow}>
               <p className={styles.intro}>{about.intro}</p>
               <div className={styles.resume}>
@@ -103,7 +106,7 @@ function About() {
       </article>
 
       {/* education + experience */}
-      <ul className={styles.timeline}>
+      <ul className={`${styles.timeline} ${styles.fadeUp} ${styles.delayTimeline}`}>
         {[
           ...about.educationItems.map((item) => ({ ...item, type: about.education })),
           ...about.experienceItems.map((item) => ({ ...item, type: about.experience })),
@@ -121,7 +124,7 @@ function About() {
       </ul>
 
       {/* stack flowing rows */}
-      <div className={`${styles.row} ${styles.stackSection}`}>
+      <div className={`${styles.row} ${styles.stackSection} ${styles.fadeUp} ${styles.delayStack}`}>
         <StackFlowingMenu
           categories={STACK_CATEGORIES.map((category) => ({
             id: category.labelKey,

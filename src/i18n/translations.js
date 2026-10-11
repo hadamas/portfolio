@@ -47,14 +47,14 @@ export const translations = {
       linkLabel: 'View project',
       items: {
         'project-01': {
-          category: 'Web Development | Full Stack',
-          title: 'Gatos de Francisca',
-          description: 'A website still in development for a cat shelter, featuring an integrated online store for fundraising, a database for adoption management, and cards displaying the cats currently available for adoption, along with information about the project and its cause.',
+          category: 'Web Development | WebGL | UI/UX',
+          title: 'Waves of Light',
+          description: "A lightweight, customizable animated background built with React and WebGL. Soft waves of light, shadows, and grain inspired by sunlight moving across the ocean floor. Built with a single GLSL fragment shader, with no extra dependencies beyond React. Open Settings, make it your own, and grab the code. I'm using it on this website too :D",
         },
         'project-02': {
-          category: 'Web Development | Full Stack',
-          title: 'Gatos de Francisca',
-          description: 'A website still in development for a cat shelter, featuring an integrated online store for fundraising, a database for adoption management, and cards displaying the cats currently available for adoption, along with information about the project and its cause.',
+          category: 'Web Development | Blender | Three.js',
+          title: 'Interactive 3D Cat',
+          description: 'An interactive 3D experience built with React, Vite, and React Three Fiber. Explore an animated 3D cat rendered right in your browser. Built with Three.js, React Three Fiber and drei to bring 3D models to life on the web.',
         },
         'project-03': {
           category: 'Web Development | Full Stack',
@@ -128,14 +128,14 @@ export const translations = {
       linkLabel: 'Ver projeto',
       items: {
         'project-01': {
-          category: 'Desenvolvimento Web | Full Stack',
-          title: 'Gatos de Francisca',
-          description: 'Website ainda em desenvolvimento para um gatil, com loja virtual integrada para arrecadação de fundos, banco de dados para gestão das adoções e cards exibindo os gatos disponíveis, além de informações sobre o projeto e a causa.',
+          category: 'Desenvolvimento Web | WebGL | UI/UX',
+          title: 'Waves of Light',
+          description: 'Um background animado, leve e personalizável, criado com React e WebGL. Ondas suaves de luz, sombras e granulação inspiradas na luz do sol se movendo sobre o fundo do mar. Feito com um único fragment shader em GLSL, sem dependências extras além do React. Abra as configurações, personalize do seu jeito e pegue o código. Também estou usando ele aqui como o fundo :D',
         },
         'project-02': {
-          category: 'Desenvolvimento Web | Full Stack',
-          title: 'Gatos de Francisca',
-          description: 'Website ainda em desenvolvimento para um gatil, com loja virtual integrada para arrecadação de fundos, banco de dados para gestão das adoções e cards exibindo os gatos disponíveis, além de informações sobre o projeto e a causa.',
+          category: 'Desenvolvimento Web | Blender | Three.js',
+          title: '3D Interativo',
+          description: 'Uma experiência 3D interativa criada com React, Vite e React Three Fiber. Explore um gato 3D animado renderizado diretamente no navegador. Feito com Three.js, React Three Fiber e drei para dar vida a modelos 3D na web.',
         },
         'project-03': {
           category: 'Desenvolvimento Web | Full Stack',
@@ -209,14 +209,14 @@ export const translations = {
       linkLabel: 'Voir le projet',
       items: {
         'project-01': {
-          category: 'Développement Web | Full Stack',
-          title: 'Gatos de Francisca',
-          description: "Site web encore en développement pour un refuge de chats, avec une boutique en ligne intégrée pour la collecte de fonds, une base de données pour la gestion des adoptions et des fiches présentant les chats actuellement disponibles à l'adoption, ainsi que des informations sur le projet et sa cause.",
+          category: 'Développement Web | WebGL | UI/UX',
+          title: 'Waves of Light',
+          description: "Un arrière-plan animé, léger et personnalisable, créé avec React et WebGL. Des vagues douces de lumière, d'ombre et de grain, inspirées par les rayons du soleil qui traversent l'eau et illuminent les fonds marins. Créé avec un seul fragment shader en GLSL, sans dépendances supplémentaires en dehors de React. Ouvre les paramètres, personnalise-le à ton goût et récupère le code. Je l'utilise aussi sur ce site :D",
         },
         'project-02': {
-          category: 'Développement Web | Full Stack',
-          title: 'Gatos de Francisca',
-          description: "Site web encore en développement pour un refuge de chats, avec une boutique en ligne intégrée pour la collecte de fonds, une base de données pour la gestion des adoptions et des fiches présentant les chats actuellement disponibles à l'adoption, ainsi que des informations sur le projet et sa cause.",
+          category: 'Développement Web | Blender | Three.js',
+          title: '3D Interactif',
+          description: "Une expérience 3D interactive créée avec React, Vite et React Three Fiber. Explore un chat 3D animé, rendu directement dans ton navigateur. Créé avec Three.js, React Three Fiber et drei pour donner vie aux modèles 3D sur le web. :D",
         },
         'project-03': {
           category: 'Développement Web | Full Stack',
@@ -289,14 +289,14 @@ export const translations = {
       linkLabel: 'プロジェクトを見る',
       items: {
         'project-01': {
-          category: 'ウェブ開発 | フルスタック',
-          title: 'Gatos de Francisca',
-          description: '保護猫シェルターのための開発中のウェブサイト。寄付金を集めるためのオンラインショップ機能、里親管理のためのデータベース、現在里親を募集している猫たちをカード形式で紹介する機能に加え、プロジェクトや活動についての情報も掲載しています。',
+          category: 'ウェブ開発 | WebGL | UI/UX',
+          title: 'Waves of Light',
+          description: 'React と WebGL で作った、軽量でカスタマイズ可能なアニメーション背景。海底に差し込む太陽の光をイメージした、柔らかな光と影、粒子感のあるエフェクトです。GLSL のフラグメントシェーダー 1 つで実装しており、React 以外の追加ライブラリは必要ありません。設定を開いて、好きなようにカスタマイズして、コードをコピーしてね。私のポートフォリオでも使ってるよ :D',
         },
         'project-02': {
-          category: 'ウェブ開発 | フルスタック',
-          title: 'Gatos de Francisca',
-          description: '保護猫シェルターのための開発中のウェブサイト。寄付金を集めるためのオンラインショップ機能、里親管理のためのデータベース、現在里親を募集している猫たちをカード形式で紹介する機能に加え、プロジェクトや活動についての情報も掲載しています。',
+          category: 'ウェブ開発 | Blender | Three.js',
+          title: 'インタラクティブな3D猫',
+          description: 'React、Vite、React Three Fiber で作ったインタラクティブな 3D 体験。ブラウザ上で動く、アニメーション付きの 3D 猫を楽しめます。Three.js、React Three Fiber、drei を使って、Web 上で 3D モデルに命を吹き込みました。',
         },
         'project-03': {
           category: 'ウェブ開発 | フルスタック',

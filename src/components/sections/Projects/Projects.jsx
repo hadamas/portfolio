@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Image as ImageIcon } from 'lucide-react'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
+import { useNavigationContext } from '../../../hooks/useNavigationContext'
 import { translations } from '../../../i18n/translations'
 import { PROJECTS } from '../../../data/projects'
 import styles from './Projects.module.css'
@@ -13,6 +14,8 @@ function formatDate(date) {
 
 function Projects() {
   const { language } = useLanguageContext()
+  const { activeSection, isMenuOpen } = useNavigationContext()
+  const isSectionActive = !isMenuOpen && activeSection === 'projects'
   const copy = translations[language.code].projects
   const sectionTitle = translations[language.code].nav.projects
 
@@ -31,12 +34,12 @@ function Projects() {
   }
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} data-active={isSectionActive}>
       <h2 className={styles.srOnly}>{sectionTitle}</h2>
 
       {/* Left: media of the selected project */}
       <div
-        className={`${styles.stage} ${infoOpen ? styles.stageOpen : ''}`}
+        className={`${styles.stage} ${styles.fromLeft} ${infoOpen ? styles.stageOpen : ''}`}
         onClick={() => setInfoOpen((open) => !open)}
       >
         {PROJECTS.map((project) => {
@@ -74,7 +77,7 @@ function Projects() {
       </div>
 
       {/* Right: scrollable project list */}
-      <ul className={styles.list}>
+      <ul className={`${styles.list} ${styles.fromRight}`}>
         {PROJECTS.map((project) => {
           const text = copy.items[project.id]
           const isActive = project.id === activeId

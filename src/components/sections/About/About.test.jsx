@@ -3,9 +3,14 @@ import userEvent from '@testing-library/user-event'
 import { describe, it, expect } from 'vitest'
 import About from './About'
 import { LanguageProvider } from '../../../context/LanguageProvider'
+import { NavigationProvider } from '../../../context/NavigationProvider'
 
 function renderWithProvider(ui) {
-  return render(<LanguageProvider>{ui}</LanguageProvider>)
+  return render(
+    <LanguageProvider>
+      <NavigationProvider>{ui}</NavigationProvider>
+    </LanguageProvider>,
+  )
 }
 
 describe('About', () => {

@@ -9,6 +9,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   color: var(--color-text);
+  /* keeps the slide-in offsets from creating a horizontal scrollbar */
+  overflow-x: clip;
 }
 
 .srOnly {
@@ -72,7 +74,7 @@
   background: var(--color-surface-hover);
 }
 
-/* Description appears on top of the blurred media */
+/* description appears on top of the blurred media */
 .info {
   position: absolute;
   inset: 0;
@@ -85,6 +87,7 @@
   background: color-mix(in srgb, var(--color-bg) 45%, transparent);
   transition: opacity 0.35s ease;
   pointer-events: none;
+  font-weight: 500;
 }
 
 .info::-webkit-scrollbar {
@@ -94,6 +97,7 @@
 .description {
   margin: auto 0;
   max-width: 52ch;
+  text-align: left;
   line-height: 1.6;
   font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   color: var(--color-text);
@@ -173,6 +177,64 @@
   }
 }
 
+/* entrance: slide in (stage from the left, list from the right). exit: fade in down */
+.fromLeft,
+.fromRight {
+  animation: fadeOutDown 0.4s ease both;
+}
+
+.section[data-active='true'] .fromLeft {
+  animation: slideInLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.section[data-active='true'] .fromRight {
+  animation: slideInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
 /* Mobile: media on top, list below */
 @media (max-width: 767px) {
   .section {
@@ -182,5 +244,14 @@
 
   .list {
     padding-top: 1.25rem;
+  }
+
+  /* smaller screens: both fade in upward */
+  .section[data-active='true'] .fromLeft {
+    animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  }
+
+  .section[data-active='true'] .fromRight {
+    animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
   }
 }

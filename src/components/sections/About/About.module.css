@@ -5,6 +5,8 @@
   min-height: 100%;
   padding: 2rem;
   color: var(--color-text);
+  /* keeps the slide-in offsets from creating a horizontal scrollbar */
+  overflow-x: clip;
 }
 
 .row {
@@ -190,4 +192,64 @@
 .stackSection {
   flex-direction: column;
   gap: 1rem;
+}
+
+/* entrance animation: elements slide/fade in when About becomes active */
+.fromLeft,
+.fromRight,
+.fadeUp {
+  --reveal-x: 0px;
+  --reveal-y: 0px;
+  --reveal-delay: 0s;
+  opacity: 0;
+  transform: translate(var(--reveal-x), var(--reveal-y));
+  /* leaving: wait for the section fade-out, then reset silently */
+  transition:
+    opacity 0s linear 0.4s,
+    transform 0s linear 0.4s;
+}
+
+.fromLeft {
+  --reveal-x: -80px;
+  --reveal-delay: 0.1s;
+}
+
+.fromRight {
+  --reveal-x: 80px;
+  --reveal-delay: 0.2s;
+}
+
+.fadeUp {
+  --reveal-y: 40px;
+}
+
+.delayTimeline {
+  --reveal-delay: 0.35s;
+}
+
+.delayStack {
+  --reveal-delay: 0.5s;
+}
+
+.section[data-active='true'] .fromLeft,
+.section[data-active='true'] .fromRight,
+.section[data-active='true'] .fadeUp {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.8s ease var(--reveal-delay),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay);
+}
+
+/* smaller screens: everything fades in upward */
+@media (max-width: 767px) {
+  .fromLeft,
+  .fromRight {
+    --reveal-x: 0px;
+    --reveal-y: 40px;
+  }
+
+  .fromRight {
+    --reveal-delay: 0.25s;
+  }
 }
