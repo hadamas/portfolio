@@ -114,7 +114,7 @@ export const translations = {
         { name: 'Japonês', level: 'Básico' },
       ],
       educationItems: [
-        { period: '2028', title: 'Cefet/RJ', subtitle: "Bachelor's Degree in Computer Science" },
+        { period: '2028', title: 'Cefet/RJ', subtitle: "Bacharelado em Ciência da Computação" },
         { period: '2025', title: '42 Rio | 42 Network', subtitle: 'Engenharia de Software' },
       ],
       experienceItems: [
@@ -195,7 +195,7 @@ export const translations = {
         { name: 'Japonais', level: 'Basique' },
       ],
       educationItems: [
-        { period: '2028', title: 'Cefet/RJ', subtitle: "Bachelor's Degree in Computer Science" },
+        { period: '2028', title: 'Cefet/RJ', subtitle: "Licence en informatique" },
         { period: '2025', title: '42 Rio | 42 Network (École)', subtitle: 'Software Engineering' },
       ],
       experienceItems: [

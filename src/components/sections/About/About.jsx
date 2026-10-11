@@ -1,6 +1,8 @@
+import { useEffect, useState } from 'react'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { translations } from '../../../i18n/translations'
-import profilePic from '../../../assets/images/profile-pic.jpeg'
+import profilePic from '../../../assets/images/profile-pic.GIF'
+import profilePicStatic from '../../../assets/images/profile-pic-static.JPG'
 import ContactLink from '../Contact/ContactLink'
 import LanguageFlags from './LanguageFlags'
 import StackFlowingMenu from './StackFlowingMenu/StackFlowingMenu'
@@ -62,6 +64,17 @@ const STACK_CATEGORIES = [
 function About() {
   const { language } = useLanguageContext()
   const about = translations[language.code].about
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  // warm the cache so the GIF starts right away on the first hover
+  useEffect(() => {
+    const preload = new Image()
+    preload.src = profilePic
+  }, [])
+
+  // mounting a fresh <img> restarts the GIF at frame 1; it keeps looping while hovered
+  const startPlaying = () => setIsPlaying(true)
+  const stopPlaying = () => setIsPlaying(false)
 
   return (
     <section className={styles.section}>
@@ -69,8 +82,9 @@ function About() {
       <article className={styles.card}>
         <div className={styles.cardBody}>
           <div className={styles.photoCol}>
-            <div className={styles.photoWrap}>
-              <img src={profilePic} alt="alanis profile pic" className={styles.photo} />
+            <div className={styles.photoWrap} onMouseEnter={startPlaying} onMouseLeave={stopPlaying}>
+              <img src={profilePicStatic} alt="alanis profile pic" className={styles.photo} />
+              {isPlaying && <img src={profilePic} alt="" aria-hidden="true" className={styles.photoGif} />}
             </div>
             <LanguageFlags label={about.languages} languages={about.languagesSpoken} />
           </div>

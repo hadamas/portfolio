@@ -35,7 +35,7 @@ describe('About', () => {
   it('mostra os ícones das ferramentas na faixa, com fallback pra as sem ícone (ex: REST APIs)', () => {
     renderWithProvider(<About />)
     expect(screen.getAllByAltText('React').length).toBeGreaterThan(0)
-    expect(screen.getAllByTitle('REST APIs').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('REST APIs').length).toBeGreaterThan(0)
   })
 
   it('mostra as 4 bandeiras de idiomas e os 4 itens de educação/experiência', () => {

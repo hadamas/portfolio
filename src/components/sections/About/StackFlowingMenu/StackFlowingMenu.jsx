@@ -21,6 +21,7 @@ function StackMenuRow({ label, tools }) {
   const animationRef = useRef(null)
   const [repetitions, setRepetitions] = useState(4)
   const [isActive, setIsActive] = useState(false)
+  const [selectedBadge, setSelectedBadge] = useState(null)
 
   const animationDefaults = { duration: 0.6, ease: 'expo' }
 
@@ -107,6 +108,7 @@ function StackMenuRow({ label, tools }) {
   }
 
   function handleMouseLeave(event) {
+    setSelectedBadge(null)
     if (isActive) return
     hideFrom(event.clientX, event.clientY)
   }
@@ -126,12 +128,15 @@ function StackMenuRow({ label, tools }) {
   const iconSet = tools.map((tool) => ({ ...tool, key: tool.slug ?? tool.name }))
 
   return (
-    <div className={styles.menuItem} ref={itemRef}>
+    <div
+      className={styles.menuItem}
+      ref={itemRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <button
         type="button"
         className={styles.menuItemLink}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         onClick={handleClick}
         aria-pressed={isActive}
       >
@@ -143,7 +148,12 @@ function StackMenuRow({ label, tools }) {
             {[...Array(repetitions)].map((_, repIndex) => (
               <div className={styles.marqueePart} key={repIndex}>
                 {iconSet.map((tool) => (
-                  <span key={tool.key} className={styles.iconBadge} title={tool.name}>
+                  <span
+                    key={tool.key}
+                    className={`${styles.iconBadge} ${selectedBadge === `${repIndex}-${tool.key}` ? styles.iconBadgeSelected : ''}`}
+                    onClick={() => setSelectedBadge(`${repIndex}-${tool.key}`)}
+                  >
+                    <span className={styles.iconName}>{tool.name}</span>
                     {tool.slug ? (
                       <img
                         src={`https://skillicons.dev/icons?i=${tool.slug}`}

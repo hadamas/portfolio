@@ -3,7 +3,6 @@
   --color-bg: #ebeaf1; /* ou essa cor #f6f5ef */
   --color-bg-stack: #f6f5ef;
   --color-text: #646b88;
-  --color-text: #4d5368;
   --color-surface: #ffffff;  /*ou essa cor #f6f5ef */
   --color-surface-hover: #f4f4f5;
   --color-text-muted: #6b7280;
@@ -20,7 +19,7 @@
   --frame-top: clamp(12px, 2.2vw, 34px);
   --frame-bottom: clamp(30px, 2.2vw, 34px);
   --frame-outside: #d3d3d3;
-  --frame-line: #3c3c43;
+  --frame-line: #cac5c5;
 }
 
 :root[lang='ja'] {
@@ -29,7 +28,7 @@
 
 [data-theme='dark'] {
   --frame-outside: #3c3c43;
-  --frame-line: #d3d3d3;
+  --frame-line: #575353;
   --color-bg: #313139;
   --color-bg-stack: #172122;
   --color-text: #e7e6ee;

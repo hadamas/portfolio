@@ -11,7 +11,7 @@ const LOGO_TEXT = 'hadi.'
 
 function Header() {
   const { playMenuOpenSound, playMenuCloseSound } = useSoundContext()
-  const { goToSection, isMenuOpen, toggleMenu } = useNavigationContext()
+  const { activeSection, goToSection, isMenuOpen, toggleMenu } = useNavigationContext()
 
   function handleMenuToggle() {
     if (isMenuOpen) {
@@ -21,6 +21,8 @@ function Header() {
     }
     toggleMenu()
   }
+
+  const showActions = activeSection === 'home'
 
   return (
     <header className={styles.header}>
@@ -34,17 +36,22 @@ function Header() {
       </button>
 
       <div className={styles.controls}>
-        <div className={styles.actions}>
+        <div
+          className={`${styles.actions} ${showActions ? '' : styles.actionsHidden}`}
+          inert={!showActions}
+        >
           <SoundToggle />
           <LanguageSelector />
           <ThemeToggle />
         </div>
 
-        <MenuButton
-          isOpen={isMenuOpen}
-          onClick={handleMenuToggle}
-          label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-        />
+        <div className={styles.menu}>
+          <MenuButton
+            isOpen={isMenuOpen}
+            onClick={handleMenuToggle}
+            label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+          />
+        </div>
       </div>
     </header>
   )
