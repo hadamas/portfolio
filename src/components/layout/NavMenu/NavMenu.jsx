@@ -1,4 +1,5 @@
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
+import { useSoundContext } from '../../../hooks/useSoundContext'
 import { useNavigationContext } from '../../../hooks/useNavigationContext'
 import { translations } from '../../../i18n/translations'
 import { SECTIONS } from '../../../data/sections'
@@ -9,6 +10,7 @@ import styles from './NavMenu.module.css'
 function NavMenu() {
   const { language } = useLanguageContext()
   const { activeSection, goToSection, isMenuOpen } = useNavigationContext()
+  const { playMenuClickSound } = useSoundContext()
   const nav = translations[language.code].nav
 
   return (
@@ -25,8 +27,12 @@ function NavMenu() {
               <button
                 type="button"
                 className={styles.link}
+                data-no-sound
                 aria-current={item.key === activeSection ? 'page' : undefined}
-                onClick={() => goToSection(item.key)}
+                onClick={() => {
+                  playMenuClickSound()
+                  goToSection(item.key)
+                }}
               >
                 {nav[item.key]}
               </button>
