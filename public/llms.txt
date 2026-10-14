@@ -1,0 +1,11 @@
+# Alanis Hadama
+
+> Full-stack developer based in Rio de Janeiro, Brazil. Personal portfolio with projects built with React, Node.js, Vue.js and PostgreSQL. The site is available in English, Portuguese, French and Japanese.
+
+## Links
+
+- [Portfolio](https://hadama.com.br/): projects, about and contact, in a single page
+- [GitHub](https://github.com/hadamas): code and projects
+- [LinkedIn](https://www.linkedin.com/in/alanis-hadama/): professional profile
+- [Resume (English)](https://hadama.com.br/alanishadama-eng.pdf)
+- [Resume (Portuguese)](https://hadama.com.br/alanishadama-ptbr.pdf)

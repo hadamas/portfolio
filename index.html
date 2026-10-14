@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/images/icon-tab.PNG" />
+    <link rel="icon" type="image/png" href="/src/assets/images/icon-tab.PNG" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="preload"
@@ -11,10 +11,64 @@
       type="font/woff2"
       crossorigin
     />
-    <title>Alanis Hadama | Portfolio</title>
+    <title>Alanis Hadama | Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Developer based in Rio de Janeiro, Brazil. Explore Alanis Hadama's portfolio: web projects built with React, Node.js and more."
+    />
+    <meta name="author" content="Alanis Hadama" />
+    <link rel="canonical" href="https://hadama.com.br/" />
+
+    <!-- Link previews (LinkedIn, WhatsApp, Slack...) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hadama.com.br/" />
+    <meta property="og:site_name" content="Alanis Hadama" />
+    <meta property="og:title" content="Alanis Hadama | Full-Stack Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="Full-stack developer based in Rio de Janeiro, Brazil. Explore my projects built with React, Node.js and more."
+    />
+    <meta property="og:image" content="https://hadama.com.br/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Structured data: tells search engines who this site is about -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alanis Hadama",
+        "alternateName": "Hadi.",
+        "jobTitle": "Developer and Web Designer",
+        "url": "https://hadama.com.br/",
+        "image": "https://hadama.com.br/og-image.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rio de Janeiro",
+          "addressCountry": "BR"
+        },
+        "knowsAbout": ["React", "Node.js", "JavaScript", "TypeScript", "Vue.js", "PostgreSQL", "WebGL", "Three.js"],
+        "sameAs": [
+          "https://github.com/hadamas",
+          "https://www.linkedin.com/in/alanis-hadama/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <h1>Alanis Hadama, Full-Stack Developer</h1>
+      <p>
+        Full-stack developer based in Rio de Janeiro, Brazil, building web applications with React,
+        Node.js, Vue.js and PostgreSQL. Please enable JavaScript to view this portfolio.
+      </p>
+      <p>
+        <a href="https://github.com/hadamas">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/alanis-hadama/">LinkedIn</a>
+      </p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

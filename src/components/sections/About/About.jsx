@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { useLanguageContext } from '../../../hooks/useLanguageContext'
 import { useNavigationContext } from '../../../hooks/useNavigationContext'
 import { translations } from '../../../i18n/translations'
-import profilePic from '../../../assets/images/profile-pic.GIF'
-import profilePicStatic from '../../../assets/images/profile-pic-static.JPG'
+import profileVideo from '../../../assets/videos/profile-pic.mp4'
+import profilePicStatic from '../../../assets/images/profile-pic-static.jpg'
 import ContactLink from '../Contact/ContactLink'
 import LanguageFlags from './LanguageFlags'
 import StackFlowingMenu from './StackFlowingMenu/StackFlowingMenu'
@@ -66,16 +66,19 @@ function About() {
   const { language } = useLanguageContext()
   const { activeSection, isMenuOpen } = useNavigationContext()
   const about = translations[language.code].about
-  const isActive = !isMenuOpen && activeSection === 'about'
   const [isPlaying, setIsPlaying] = useState(false)
+  // Becomes true shortly after mount so the entrance animation also plays
+  // when this section is mounted already active (lazy loaded on first visit)
+  const [isMounted, setIsMounted] = useState(false)
 
-  // warm the cache so the GIF starts right away on the first hover
   useEffect(() => {
-    const preload = new Image()
-    preload.src = profilePic
+    const timer = setTimeout(() => setIsMounted(true), 50)
+    return () => clearTimeout(timer)
   }, [])
 
-  // mounting a fresh <img> restarts the GIF at frame 1; it keeps looping while hovered
+  const isActive = isMounted && !isMenuOpen && activeSection === 'about'
+
+  // mounting a fresh <video> restarts it at frame 1; it keeps looping while hovered
   const startPlaying = () => setIsPlaying(true)
   const stopPlaying = () => setIsPlaying(false)
 
@@ -87,7 +90,18 @@ function About() {
           <div className={`${styles.photoCol} ${styles.fromLeft}`}>
             <div className={styles.photoWrap} onMouseEnter={startPlaying} onMouseLeave={stopPlaying}>
               <img src={profilePicStatic} alt="alanis profile pic" className={styles.photo} />
-              {isPlaying && <img src={profilePic} alt="" aria-hidden="true" className={styles.photoGif} />}
+              {isPlaying && (
+                <video
+                  className={styles.photoGif}
+                  src={profileVideo}
+                  poster={profilePicStatic}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-hidden="true"
+                />
+              )}
             </div>
             <LanguageFlags label={about.languages} languages={about.languagesSpoken} />
           </div>
