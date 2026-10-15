@@ -12,5 +12,6 @@ export const SOCIALS = [
   { id: 'linkedin', name: 'linkedin', href: linkedinHref },
   { id: 'github', name: 'github', href: "https://github.com/hadamas" },
   // { id: 'tiktok', name: 'tiktok', href: "https://www.tiktok.com/@guidebyhadi" },
+  { id: 'skecthfab', name: 'skecthfab', href: "https://sketchfab.com/alanis.hadama" },
   { id: 'codepen', name: 'codepen', href: "https://codepen.io/hadamas" },
 ]
